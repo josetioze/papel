@@ -1,20 +1,18 @@
-
-
-QUE SEJAMOS FELIZES MEU CUSCUZ
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z456KM4HBN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-Z456KM4HBN');
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z456KM4HBN"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z456KM4HBN');
 </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nosso Amor ❤️</title>
 
 <style>
@@ -163,7 +161,7 @@ Abrir Carta ❤️
 
 <div class="container" id="site">
 
-<h1>Feliz Seja Nosso Primeiro Mes Meu Amor ❤️</h1>
+<h1 id="titulo"></h1>
 
 <div id="contador">
 Estamos juntos há<br>
@@ -174,7 +172,7 @@ Estamos juntos há<br>
 Como já te falei, "o tempo é o nosso bem mais precioso". Olhar para 2026 e saber que iniciei o ciclo de uma vida inteira com você me traz uma felicidade que eu não sabia que existia. Você não é apenas a minha melhor escolha, você é o porto seguro onde meu coração decidiu pousar.
 Olhar para nós e para o que estamos construindo me emociona profundamente. Mas o que me tira o fôlego não é apenas o "nós", é a mulher monumental e extraordinária que você se revela a cada dia. Sua força não é barulhenta, ela é constante, a sua sabedoria guia nossos passos e o seu jeito de enfrentar as adversidades com esse seu "jeitinho" único me faz te admirar como nunca admirei ninguém.
 Minha Mulher-Maravilha, ter você ao meu lado não é sorte, é o maior privilégio da minha existência. 
-Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos que ainda vamos tirar do papel. Obrigado por ser você e, unicamente, você!❤️
+Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos que ainda vamos tirar do papel. Obrigado por ser você e, unicamente, você! ❤️
 </div>
 
 <h2>Nossos Momentos 📸</h2>
@@ -183,27 +181,27 @@ Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos q
 
 <div class="foto">
 <img src="w1.jpeg">
-<p>Nossa primeira foto juntos, você toda tímida</p>
+<p>Nossa primeira foto juntos</p>
 </div>
 
 <div class="foto">
 <img src="w2.jpeg">
-<p>Um dia simples que virou uma lembrança especial</p>
+<p>Um dia simples que virou lembrança</p>
 </div>
 
 <div class="foto">
 <img src="w3.jpeg">
-<p>Sua beleza radiante é minha parte favorita em você</p>
+<p>Sua beleza radiante</p>
 </div>
 
 <div class="foto">
 <img src="w4.jpeg">
-<p>Tentando imitar aquela figurinha do zapzap kkkk</p>
+<p>Tentando imitar figurinha kkk</p>
 </div>
 
 <div class="foto">
 <img src="w5.jpeg">
-<p>Nem parece ser a pessoa que estava sem reação segundos antes</p>
+<p>Sem reação segundos antes</p>
 </div>
 
 <div class="foto">
@@ -237,10 +235,13 @@ Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos q
 </div>
 
 </div>
-
 </div>
 
 <script>
+
+/* DATA INICIO */
+
+const dataInicio = new Date(2026,1,9);
 
 /* ABRIR CARTA */
 
@@ -255,8 +256,6 @@ musica.play();
 }
 
 /* CONTADOR */
-
-const dataInicio = new Date(2026,1,9);
 
 function atualizarContador(){
 
@@ -275,11 +274,54 @@ dias+" dias "+horas+"h "+minutos+"m "+segundos+"s";
 
 setInterval(atualizarContador,1000);
 
+/* TITULO DINAMICO */
+
+function atualizarTitulo(){
+
+const agora = new Date();
+
+let meses =
+(agora.getFullYear() - dataInicio.getFullYear()) * 12 +
+(agora.getMonth() - dataInicio.getMonth());
+
+let frase="";
+
+if(meses==0){
+frase="Feliz Nosso Primeiro Mês Meu Amor ❤️";
+}
+else if(meses==1){
+frase="Feliz 2 Meses de Amor ❤️";
+}
+else if(meses==2){
+frase="3 Meses Juntos Meu Amor ❤️";
+}
+else if(meses==3){
+frase="4 Meses de Nós Dois ❤️";
+}
+else if(meses==4){
+frase="5 Meses de Amor ❤️";
+}
+else if(meses==5){
+frase="Meio Ano Com Você ❤️";
+}
+else if(meses>=11){
+frase="1 Ano do Nosso Amor ❤️";
+}
+else{
+frase=(meses+1)+" Meses de Nós Dois ❤️";
+}
+
+document.getElementById("titulo").innerText=frase;
+
+}
+
+setInterval(atualizarTitulo,1000);
+
 /* CORAÇÕES */
 
 function criarCoracao(){
 
-const heart = document.createElement("div");
+const heart=document.createElement("div");
 heart.classList.add("heart");
 
 heart.innerHTML="❤️";
@@ -301,7 +343,7 @@ setInterval(criarCoracao,300);
 
 </body>
 </html>
-```
+
 
 
 
