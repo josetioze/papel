@@ -1,8 +1,15 @@
 QUE SEJAMOS FELIZES MEU CUSCUZ
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z456KM4HBN"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z456KM4HBN');
+</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,237 +20,333 @@ QUE SEJAMOS FELIZES MEU CUSCUZ
 
 body{
 background:#d8c3a5;
-font-family:Arial;
+font-family: Arial;
 text-align:center;
 margin:0;
-color:#4b2e2e;
+color:white;
 overflow-x:hidden;
 }
 
 /* CARTA */
 
 #carta{
+position:fixed;
+top:0;
+left:0;
+width:100%;
 height:100vh;
+background:#d8c3a5;
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
+z-index:10;
 }
 
-.botao{
-padding:15px 30px;
-font-size:20px;
+#carta button{
+font-size:22px;
+padding:20px 40px;
 border:none;
-border-radius:10px;
-background:#8b5e3c;
+border-radius:20px;
+background:#ff4d6d;
 color:white;
 cursor:pointer;
 }
 
-.botao:hover{
-background:#6f472b;
-}
-
-
 /* SITE */
 
-#site{
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
 display:none;
-padding-top:40px;
-min-height:100vh;
 }
 
-#titulo{
-font-size:36px;
-margin-bottom:10px;
+h1{
+font-size:3em;
+margin-top:20px;
+animation:pulse 2s infinite;
 }
 
-#tempo{
-font-size:24px;
-margin-bottom:40px;
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
 }
 
+#contador{
+background:white;
+color:#ff4d6d;
+padding:20px;
+border-radius:20px;
+font-size:1.5em;
+margin:30px auto;
+width:80%;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.texto{
+font-size:1.2em;
+margin:30px;
+}
+
+/* GALERIA */
+
+.galeria{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:40px;
+margin-top:30px;
+}
+
+.foto{
+width:80%;
+max-width:400px;
+}
+
+.foto img{
+width:100%;
+border-radius:15px;
+box-shadow:0 8px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.foto img:hover{
+transform:scale(1.05);
+}
+
+.foto p{
+margin-top:10px;
+font-size:1.1em;
+}
 
 /* CORAÇÕES */
 
 .heart{
 position:fixed;
 top:-10px;
+color:red;
 font-size:20px;
-animation:fall linear forwards;
+animation:fall linear infinite;
 }
 
 @keyframes fall{
-
 to{
-transform:translateY(110vh);
+transform:translateY(100vh);
 }
-
 }
 
 </style>
-
 </head>
 
-
 <body>
-
-
-<!-- CARTA -->
-
-<div id="carta">
-
-<h1>Tenho algo para você ❤️</h1>
-
-<button class="botao" onclick="abrirCarta()">
-Abrir
-</button>
-
-</div>
-
-
-
-<!-- SITE PRINCIPAL -->
-
-<div id="site">
-
-<h2>QUE SEJAMOS FELIZES MEU CUSCUZ</h2>
-
-<h1 id="titulo"></h1>
-
-<p id="tempo"></p>
 
 <audio id="musica" loop>
 <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
+<!-- CARTA -->
+
+<div id="carta">
+
+<h2>💌 Tenho algo para você...</h2>
+
+<button onclick="abrirCarta()">
+Abrir Carta ❤️
+</button>
+
 </div>
 
+<!-- SITE -->
 
+<div class="container" id="site">
+
+<h1 id="titulo"></h1>
+
+<div id="contador">
+Estamos juntos há<br>
+<b id="tempo"></b>
+</div>
+
+<div class="texto">
+Como já te falei, "o tempo é o nosso bem mais precioso". Olhar para 2026 e saber que iniciei o ciclo de uma vida inteira com você me traz uma felicidade que eu não sabia que existia. Você não é apenas a minha melhor escolha, você é o porto seguro onde meu coração decidiu pousar.
+Olhar para nós e para o que estamos construindo me emociona profundamente. Mas o que me tira o fôlego não é apenas o "nós", é a mulher monumental e extraordinária que você se revela a cada dia. Sua força não é barulhenta, ela é constante, a sua sabedoria guia nossos passos e o seu jeito de enfrentar as adversidades com esse seu "jeitinho" único me faz te admirar como nunca admirei ninguém.
+Minha Mulher-Maravilha, ter você ao meu lado não é sorte, é o maior privilégio da minha existência. 
+Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos que ainda vamos tirar do papel. Obrigado por ser você e, unicamente, você! ❤️
+</div>
+
+<h2>Nossos Momentos 📸</h2>
+
+<div class="galeria">
+
+<div class="foto">
+<img src="w1.jpeg">
+<p>Nossa primeira foto juntos</p>
+</div>
+
+<div class="foto">
+<img src="w2.jpeg">
+<p>Um dia simples que virou lembrança</p>
+</div>
+
+<div class="foto">
+<img src="w3.jpeg">
+<p>Sua beleza radiante</p>
+</div>
+
+<div class="foto">
+<img src="w4.jpeg">
+<p>Tentando imitar figurinha kkk</p>
+</div>
+
+<div class="foto">
+<img src="w5.jpeg">
+<p>Sem reação segundos antes</p>
+</div>
+
+<div class="foto">
+<img src="w6.jpeg">
+<p>Eu escolheria você mil vezes</p>
+</div>
+
+<div class="foto">
+<img src="w7.jpeg">
+<p>Mais um capítulo da nossa história</p>
+</div>
+
+<div class="foto">
+<img src="w8.jpeg">
+<p>Momentos simples que valem tudo</p>
+</div>
+
+<div class="foto">
+<img src="w9.jpeg">
+<p>Seu abraço é meu lugar favorito</p>
+</div>
+
+<div class="foto">
+<img src="w10.jpeg">
+<p>Te amar é a melhor parte do meu dia</p>
+</div>
+
+<div class="foto">
+<img src="w11.jpeg">
+<p>Nossa história está só começando ❤️</p>
+</div>
+
+</div>
+</div>
 
 <script>
 
-
-/* DATA DE INÍCIO */
+/* DATA INICIO */
 
 const dataInicio = new Date(2026,1,9);
-
 
 /* ABRIR CARTA */
 
 function abrirCarta(){
 
 document.getElementById("carta").style.display="none";
-
 document.getElementById("site").style.display="block";
 
-let musica=document.getElementById("musica");
-
+let musica = document.getElementById("musica");
 musica.play();
 
 }
-
-
 
 /* CONTADOR */
 
 function atualizarContador(){
 
-const agora=new Date();
+const agora = new Date();
+const diff = agora - dataInicio;
 
-const diff=agora-dataInicio;
+const dias = Math.floor(diff/(1000*60*60*24));
+const horas = Math.floor((diff/(1000*60*60))%24);
+const minutos = Math.floor((diff/(1000*60))%60);
+const segundos = Math.floor((diff/1000)%60);
 
-const dias=Math.floor(diff/(1000*60*60*24));
-
-const horas=Math.floor((diff/(1000*60*60))%24);
-
-const minutos=Math.floor((diff/(1000*60))%60);
-
-const segundos=Math.floor((diff/1000)%60);
-
-document.getElementById("tempo").innerHTML=
-
-dias+" dias "+
-
-horas+"h "+
-
-minutos+"m "+
-
-segundos+"s";
+document.getElementById("tempo").innerHTML =
+dias+" dias "+horas+"h "+minutos+"m "+segundos+"s";
 
 }
 
 setInterval(atualizarContador,1000);
 
-
-
-/* TITULO CORRIGIDO */
+/* TITULO DINAMICO */
 
 function atualizarTitulo(){
 
-const agora=new Date();
+const agora = new Date();
 
-let meses=
+let meses =
+(agora.getFullYear() - dataInicio.getFullYear()) * 12 +
+(agora.getMonth() - dataInicio.getMonth());
 
-(agora.getFullYear()-dataInicio.getFullYear())*12+
+let frase="";
 
-(agora.getMonth()-dataInicio.getMonth());
+if(meses==0){
+frase="Feliz Nosso Primeiro Mês Meu Amor ❤️";
+}
+else if(meses==1){
+frase="Feliz 2 Meses de Amor ❤️";
+}
+else if(meses==2){
+frase="3 Meses Juntos Meu Amor ❤️";
+}
+else if(meses==3){
+frase="4 Meses de Nós Dois ❤️";
+}
+else if(meses==4){
+frase="5 Meses de Amor ❤️";
+}
+else if(meses==5){
+frase="Meio Ano Com Você ❤️";
+}
+else if(meses>=11){
+frase="1 Ano do Nosso Amor ❤️";
+}
+else{
+frase=(meses+1)+" Meses de Nós Dois ❤️";
+}
 
-
-if(agora.getDate()<9){
-
-meses--;
+document.getElementById("titulo").innerText=frase;
 
 }
 
-
-/* começa em 1 mês */
-
-let mesesMostrar=meses+1;
-
-
-document.getElementById("titulo").innerText=
-
-"Feliz Seja Nosso "+mesesMostrar+" Mês Amor ❤️";
-
-}
-
-atualizarTitulo();
-
-setInterval(atualizarTitulo,3600000);
-
-
+setInterval(atualizarTitulo,1000);
 
 /* CORAÇÕES */
 
 function criarCoracao(){
 
 const heart=document.createElement("div");
-
 heart.classList.add("heart");
 
 heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"vw";
-
 heart.style.animationDuration=(Math.random()*3+2)+"s";
 
 document.body.appendChild(heart);
 
 setTimeout(()=>{
-
 heart.remove();
-
-},5000);
+},5000)
 
 }
 
 setInterval(criarCoracao,300);
 
-
 </script>
 
-
 </body>
-
 </html>
+
+
+
+
+
+
