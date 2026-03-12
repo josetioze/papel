@@ -1,7 +1,9 @@
 QUE SEJAMOS FELIZES MEU CUSCUZ
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,8 +16,8 @@ background:#d8c3a5;
 font-family:Arial;
 text-align:center;
 margin:0;
-overflow-x:hidden;
 color:#4b2e2e;
+overflow-x:hidden;
 }
 
 /* CARTA */
@@ -42,22 +44,25 @@ cursor:pointer;
 background:#6f472b;
 }
 
+
 /* SITE */
 
 #site{
 display:none;
 padding-top:40px;
+min-height:100vh;
 }
 
 #titulo{
-font-size:35px;
-margin-bottom:20px;
+font-size:36px;
+margin-bottom:10px;
 }
 
 #tempo{
-font-size:25px;
-margin-bottom:30px;
+font-size:24px;
+margin-bottom:40px;
 }
+
 
 /* CORAÇÕES */
 
@@ -77,12 +82,15 @@ transform:translateY(110vh);
 }
 
 </style>
+
 </head>
+
 
 <body>
 
 
 <!-- CARTA -->
+
 <div id="carta">
 
 <h1>Tenho algo para você ❤️</h1>
@@ -94,8 +102,12 @@ Abrir
 </div>
 
 
-<!-- SITE -->
+
+<!-- SITE PRINCIPAL -->
+
 <div id="site">
+
+<h2>QUE SEJAMOS FELIZES MEU CUSCUZ</h2>
 
 <h1 id="titulo"></h1>
 
@@ -108,9 +120,11 @@ Abrir
 </div>
 
 
+
 <script>
 
-/* DATA INICIO */
+
+/* DATA DE INÍCIO */
 
 const dataInicio = new Date(2026,1,9);
 
@@ -128,6 +142,7 @@ let musica=document.getElementById("musica");
 musica.play();
 
 }
+
 
 
 /* CONTADOR */
@@ -161,7 +176,8 @@ segundos+"s";
 setInterval(atualizarContador,1000);
 
 
-/* TITULO */
+
+/* TITULO CORRIGIDO */
 
 function atualizarTitulo(){
 
@@ -173,33 +189,29 @@ let meses=
 
 (agora.getMonth()-dataInicio.getMonth());
 
-if(agora.getDate()<dataInicio.getDate()){
+
+if(agora.getDate()<9){
 
 meses--;
 
 }
 
-let frase="";
 
-if(meses<=1){
+/* começa em 1 mês */
 
-frase="Feliz Seja Nosso 1 Mês Amor ❤️";
+let mesesMostrar=meses+1;
 
-}
 
-else{
+document.getElementById("titulo").innerText=
 
-frase="Feliz "+meses+" Meses de Amor ❤️";
-
-}
-
-document.getElementById("titulo").innerText=frase;
+"Feliz Seja Nosso "+mesesMostrar+" Mês Amor ❤️";
 
 }
 
 atualizarTitulo();
 
 setInterval(atualizarTitulo,3600000);
+
 
 
 /* CORAÇÕES */
@@ -231,5 +243,7 @@ setInterval(criarCoracao,300);
 
 </script>
 
+
 </body>
+
 </html>
