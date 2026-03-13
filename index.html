@@ -1,46 +1,28 @@
-QUE SEJAMOS FELIZES MEU CUSCUZ
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nosso Amor ❤️</title>
+<title>Nosso Universo ❤️</title>
 
 <style>
 
 body{
-background:#0f172a;
-font-family:Arial;
-text-align:center;
 margin:0;
+font-family:Arial;
+background:#0f172a;
 color:white;
+text-align:center;
 overflow-x:hidden;
-}
-
-/* ESTRELAS */
-
-.star{
-position:fixed;
-background:white;
-width:2px;
-height:2px;
-animation:piscar 2s infinite alternate;
-}
-
-@keyframes piscar{
-from{opacity:0.2;}
-to{opacity:1;}
 }
 
 /* CARTA */
 
 #carta{
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100vh;
 background:#0f172a;
@@ -49,7 +31,6 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 z-index:10;
-transition:1s;
 }
 
 #carta button{
@@ -62,47 +43,47 @@ color:white;
 cursor:pointer;
 }
 
-/* SITE */
+/* MENU */
 
-.container{
+#menu{
+display:none;
+background:#111827;
+padding:20px;
+}
+
+#menu button{
+margin:10px;
+padding:15px 25px;
+border:none;
+border-radius:15px;
+background:#ff4d6d;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+/* PAGINAS */
+
+.pagina{
+display:none;
+padding:30px;
 max-width:900px;
 margin:auto;
-padding:20px;
+}
+
+/* GALERIA */
+
+.slide{
 display:none;
-animation:fade 2s;
 }
 
-@keyframes fade{
-from{opacity:0;}
-to{opacity:1;}
+.slide img,
+.slide video{
+width:100%;
+max-width:600px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
 }
-
-h1{
-font-size:3em;
-margin-top:20px;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.05);}
-100%{transform:scale(1);}
-}
-
-/* CONTADOR */
-
-#contador{
-background:white;
-color:#ff4d6d;
-padding:20px;
-border-radius:20px;
-font-size:1.5em;
-margin:30px auto;
-width:80%;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* TEXTO */
 
 .texto{
 font-size:1.2em;
@@ -110,313 +91,235 @@ margin:30px;
 line-height:1.6em;
 }
 
-/* SLIDESHOW */
-
-.galeria{
-position:relative;
-max-width:500px;
-margin:auto;
-}
-
-.slide{
-display:none;
-}
-
-.slide img{
-width:100%;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.4);
-}
-
-.slide p{
-margin-top:10px;
-}
-
-/* CORAÇÕES */
-
-.heart{
-position:fixed;
-top:-10px;
-color:#ff4d6d;
-font-size:20px;
-animation:fall linear infinite;
-}
-
-@keyframes fall{
-to{transform:translateY(100vh);}
-}
-
-/* EMAIL */
-
-.email{
-position:fixed;
-bottom:10px;
-right:15px;
-font-size:11px;
-opacity:0.7;
-}
-
 </style>
 </head>
 
 <body>
 
-<audio id="musica" loop>
-<source src="musica.mp3" type="audio/mpeg">
-</audio>
-
-<!-- CARTA -->
+<!-- CARTA INICIAL -->
 
 <div id="carta">
 
 <h2>💌 Tenho algo para você...</h2>
 
-<button onclick="abrirCarta()">
-Abrir Carta ❤️
+<button onclick="abrirSite()">
+Abrir ❤️
 </button>
 
 </div>
 
-<!-- SITE -->
+<!-- MENU -->
 
-<div class="container" id="site">
+<div id="menu">
 
-<h1 id="titulo"></h1>
+<button onclick="abrirPagina('historia')">
+1 - Veja nossa história
+</button>
 
-<div id="contador">
-❤️ Estamos juntos há ❤️ <br>
-<b id="tempo"></b>
+<button onclick="abrirPagina('croche')">
+2 - Tenho algo para você
+</button>
+
+<button onclick="abrirPagina('sonho')">
+3 - Vamos sonhar
+</button>
+
 </div>
 
+<!-- PAGINA 1 -->
+
+<div class="pagina" id="historia">
+
+<h1>Nossa História ❤️</h1>
+
 <div class="texto">
+
+QUE SEJAMOS FELIZES MEU CUSCUZ
+
+<br><br>
+
 Como já te falei, "o tempo é o nosso bem mais precioso". Olhar para 2026 e saber que iniciei o ciclo de uma vida inteira com você me traz uma felicidade que eu não sabia que existia. Você não é apenas a minha melhor escolha, você é o porto seguro onde meu coração decidiu pousar.
+
 Olhar para nós e para o que estamos construindo me emociona profundamente. Mas o que me tira o fôlego não é apenas o "nós", é a mulher monumental e extraordinária que você se revela a cada dia. Sua força não é barulhenta, ela é constante, a sua sabedoria guia nossos passos e o seu jeito de enfrentar as adversidades com esse seu "jeitinho" único me faz te admirar como nunca admirei ninguém.
-Minha Mulher-Maravilha, ter você ao meu lado não é sorte, é o maior privilégio da minha existência. 
+
+Minha Mulher-Maravilha, ter você ao meu lado não é sorte, é o maior privilégio da minha existência.
+
 Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos que ainda vamos tirar do papel. Obrigado por ser você e, unicamente, você!❤️
+
 </div>
 
 <h2>Nossos Momentos 📸</h2>
 
-<div class="galeria">
-
-<div class="slide">
+<div class="slide historiaSlide">
 <img src="w1.jpeg">
 <p>Nossa primeira foto juntos</p>
 </div>
 
-<div class="slide">
+<div class="slide historiaSlide">
 <img src="w2.jpeg">
 <p>Um dia simples que virou lembrança</p>
 </div>
 
-<div class="slide">
+<div class="slide historiaSlide">
 <img src="w3.jpeg">
 <p>Sua beleza radiante</p>
 </div>
 
-<div class="slide">
+<div class="slide historiaSlide">
 <img src="w4.jpeg">
 <p>Tentando imitar figurinha kkk</p>
 </div>
 
-<div class="slide">
+<div class="slide historiaSlide">
 <img src="w5.jpeg">
 <p>Sem reação segundos antes</p>
 </div>
 
-<div class="slide">
+<div class="slide historiaSlide">
 <img src="w6.jpeg">
 <p>Eu escolheria você mil vezes</p>
 </div>
 
 </div>
 
+<!-- PAGINA 2 -->
+
+<div class="pagina" id="croche">
+
+<h1>O Encanto do Crochê</h1>
+
+<div class="texto">
+
+MEU CUSCUZ, FIZ PARA VOCÊ PODER TER UMA ADMIRAÇÃO 
+DE SUAS QUALIDADES QUANDO NÃO ESTIVER NO SEU MELHOR ASTRAL. 
+Aproveita Bjssss
+
+<br><br>
+
+Falam que o artesanato é a linguagem do coração, agora, vendo o que você cria, eu acredito nisso. Ver você concentrada, transformando um simples novelo de lã em algo tão lindo e cheio de vida, me faz admirar você ainda mais. Com esses pontos perfeitos que carregam a sua essência.
+
+Que esse dom continue florescendo, porque sua criatividade não tem limites. Continue tecendo seus sonhos, ponto por ponto, proguedindo de maneira constante, saiba que eu estarei sempre aqui na primeira fila, aplaudindo, pulando e gritando "bota cuscuz" a cada criação.
+
+Aqui é um pequeno retrato visual para eu e você poder admirar com mais facilidade.
+
 </div>
 
-<div class="email">
-contato: tioze.jmps@gmail.com
+<div class="slide crocheSlide">
+<img src="c1.jpeg">
+<p>Todo grande trabalho começa com um simples fio e dedicação.</p>
+</div>
+
+<div class="slide crocheSlide">
+<video autoplay muted loop>
+<source src="v1.mp4">
+</video>
+</div>
+
+<div class="slide crocheSlide">
+<img src="c2.jpeg">
+<p>Entre os simples fios e o tempo nasce algo único.</p>
+</div>
+
+<div class="slide crocheSlide">
+<img src="c3.jpeg">
+<p>Em cada ponto, um detalhe de elegância; em cada pétala, um carinho que nunca murcha.</p>
+</div>
+
+<div class="slide crocheSlide">
+<img src="c4.jpeg">
+<p>Nenhum mestre começou pelo topo. Esse buquê é a prova de que você se desafiou, e para mim, ele é uma obra de arte, porque foi feito por você.</p>
+</div>
+
+</div>
+
+<!-- PAGINA 3 -->
+
+<div class="pagina" id="sonho">
+
+<h1>Vamos Sonhar ✨</h1>
+
+<p>Aqui você pode colocar outro slideshow.</p>
+
 </div>
 
 <script>
 
-/* DATA INICIO */
+/* ABRIR SITE */
 
-const dataInicio = new Date(2026,1,9);
+function abrirSite(){
 
-/* ABRIR CARTA */
-
-function abrirCarta(){
-
-document.getElementById("carta").style.opacity="0";
-
-setTimeout(()=>{
 document.getElementById("carta").style.display="none";
-document.getElementById("site").style.display="block";
-},800);
-
-document.getElementById("musica").play();
+document.getElementById("menu").style.display="block";
 
 }
 
-/* CONTADOR */
+/* TROCAR PAGINA */
 
-function atualizarContador(){
+function abrirPagina(id){
 
-const agora = new Date();
-const diff = agora - dataInicio;
+let paginas=document.getElementsByClassName("pagina");
 
-const dias = Math.floor(diff/(1000*60*60*24));
-const horas = Math.floor((diff/(1000*60*60))%24);
-const minutos = Math.floor((diff/(1000*60))%60);
-const segundos = Math.floor((diff/1000)%60);
+for(let i=0;i<paginas.length;i++){
+paginas[i].style.display="none";
+}
 
-document.getElementById("tempo").innerHTML =
-dias+" dias "+horas+"h "+minutos+"m "+segundos+"s";
+document.getElementById(id).style.display="block";
 
 }
 
-setInterval(atualizarContador,1000);
+/* SLIDES HISTORIA */
 
-/* TITULO CORRETO */
+let slideHistoria=0;
 
-function atualizarTitulo(){
+function slide1(){
 
-const agora = new Date();
-
-let meses =
-(agora.getFullYear()-dataInicio.getFullYear())*12+
-(agora.getMonth()-dataInicio.getMonth());
-
-if(agora.getDate()<9){
-meses--;
-}
-
-if(meses<0){
-meses=0;
-}
-
-let frase="";
-
-if(meses==12){
-
-frase="Hoje celebramos 1 ano de amor ❤️";
-explosaoDeCoracoes();
-
-}
-else if(meses==0){
-
-frase="Rumo ao Nosso Primeiro Mês Amor ❤️";
-
-}
-else if(meses==1){
-
-frase="Feliz Nosso 1 Mês Amor ❤️";
-
-}
-else{
-
-frase="Feliz Nosso "+meses+" Meses Amor ❤️";
-
-}
-
-document.getElementById("titulo").innerText=frase;
-
-}
-
-atualizarTitulo();
-setInterval(atualizarTitulo,3600000);
-
-/* CORAÇÕES */
-
-function criarCoracao(){
-
-const heart=document.createElement("div");
-
-heart.classList.add("heart");
-
-heart.innerHTML="❤️";
-
-heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(Math.random()*3+2)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{heart.remove();},5000);
-
-}
-
-setInterval(criarCoracao,300);
-
-/* EXPLOSAO 1 ANO */
-
-function explosaoDeCoracoes(){
-
-for(let i=0;i<120;i++){
-
-setTimeout(()=>{
-
-const heart=document.createElement("div");
-
-heart.innerHTML="❤️";
-
-heart.style.position="fixed";
-heart.style.left=Math.random()*100+"vw";
-heart.style.top=Math.random()*100+"vh";
-heart.style.fontSize="30px";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{heart.remove();},4000);
-
-},i*30);
-
-}
-
-}
-
-/* ESTRELAS */
-
-for(let i=0;i<120;i++){
-
-const star=document.createElement("div");
-
-star.classList.add("star");
-
-star.style.left=Math.random()*100+"vw";
-star.style.top=Math.random()*100+"vh";
-
-document.body.appendChild(star);
-
-}
-
-/* SLIDESHOW */
-
-let slideIndex=0;
-
-function mostrarSlides(){
-
-let slides=document.getElementsByClassName("slide");
+let slides=document.getElementsByClassName("historiaSlide");
 
 for(let i=0;i<slides.length;i++){
 slides[i].style.display="none";
 }
 
-slideIndex++;
+slideHistoria++;
 
-if(slideIndex>slides.length){
-slideIndex=1;
+if(slideHistoria>slides.length){
+slideHistoria=1;
 }
 
-slides[slideIndex-1].style.display="block";
+slides[slideHistoria-1].style.display="block";
 
-setTimeout(mostrarSlides,10000);
+setTimeout(slide1,8000);
 
 }
 
-mostrarSlides();
+slide1();
+
+/* SLIDES CROCHE */
+
+let slideCroche=0;
+
+function slide2(){
+
+let slides=document.getElementsByClassName("crocheSlide");
+
+for(let i=0;i<slides.length;i++){
+slides[i].style.display="none";
+}
+
+slideCroche++;
+
+if(slideCroche>slides.length){
+slideCroche=1;
+}
+
+slides[slideCroche-1].style.display="block";
+
+setTimeout(slide2,8000);
+
+}
+
+slide2();
 
 </script>
 
 </body>
 </html>
-
