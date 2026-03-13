@@ -19,7 +19,7 @@ text-align:center;
 overflow-x:hidden;
 }
 
-/* CARTA */
+/* CARTA INICIAL */
 
 #carta{
 position:fixed;
@@ -71,7 +71,15 @@ max-width:900px;
 margin:auto;
 }
 
-/* GALERIA */
+/* TEXTO */
+
+.texto{
+font-size:1.2em;
+margin:30px;
+line-height:1.6em;
+}
+
+/* SLIDES */
 
 .slide{
 display:none;
@@ -82,13 +90,7 @@ display:none;
 width:100%;
 max-width:600px;
 border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.4);
-}
-
-.texto{
-font-size:1.2em;
-margin:30px;
-line-height:1.6em;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
 }
 
 </style>
@@ -96,7 +98,7 @@ line-height:1.6em;
 
 <body>
 
-<!-- CARTA INICIAL -->
+<!-- CARTA -->
 
 <div id="carta">
 
@@ -126,7 +128,7 @@ Abrir ❤️
 
 </div>
 
-<!-- PAGINA 1 -->
+<!-- PAGINA HISTORIA -->
 
 <div class="pagina" id="historia">
 
@@ -182,7 +184,7 @@ Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos q
 
 </div>
 
-<!-- PAGINA 2 -->
+<!-- PAGINA CROCHE -->
 
 <div class="pagina" id="croche">
 
@@ -196,7 +198,7 @@ Aproveita Bjssss
 
 <br><br>
 
-Falam que o artesanato é a linguagem do coração, agora, vendo o que você cria, eu acredito nisso. Ver você concentrada, transformando um simples novelo de lã em algo tão lindo e cheio de vida, me faz admirar você ainda mais. Com esses pontos perfeitos que carregam a sua essência.
+Falam que o artesanato é a linguagem do coração, agora, vendo o que você cria, eu acredito nisso. Ver você concentrada, transformando um simples novelo de lã em algo tão lindo e cheio de vida, me faz admirar você ainda mais.
 
 Que esse dom continue florescendo, porque sua criatividade não tem limites. Continue tecendo seus sonhos, ponto por ponto, proguedindo de maneira constante, saiba que eu estarei sempre aqui na primeira fila, aplaudindo, pulando e gritando "bota cuscuz" a cada criação.
 
@@ -232,13 +234,13 @@ Aqui é um pequeno retrato visual para eu e você poder admirar com mais facilid
 
 </div>
 
-<!-- PAGINA 3 -->
+<!-- PAGINA SONHO -->
 
 <div class="pagina" id="sonho">
 
 <h1>Vamos Sonhar ✨</h1>
 
-<p>Aqui você pode colocar outro slideshow.</p>
+<p>Aqui você pode colocar outro slideshow ou planos para o futuro.</p>
 
 </div>
 
@@ -253,7 +255,7 @@ document.getElementById("menu").style.display="block";
 
 }
 
-/* TROCAR PAGINA */
+/* TROCAR PAGINAS */
 
 function abrirPagina(id){
 
@@ -271,7 +273,7 @@ document.getElementById(id).style.display="block";
 
 let slideHistoria=0;
 
-function slide1(){
+function slidesHistoria(){
 
 let slides=document.getElementsByClassName("historiaSlide");
 
@@ -287,17 +289,17 @@ slideHistoria=1;
 
 slides[slideHistoria-1].style.display="block";
 
-setTimeout(slide1,8000);
+setTimeout(slidesHistoria,8000);
 
 }
 
-slide1();
+slidesHistoria();
 
 /* SLIDES CROCHE */
 
 let slideCroche=0;
 
-function slide2(){
+function slidesCroche(){
 
 let slides=document.getElementsByClassName("crocheSlide");
 
@@ -313,11 +315,11 @@ slideCroche=1;
 
 slides[slideCroche-1].style.display="block";
 
-setTimeout(slide2,8000);
+setTimeout(slidesCroche,8000);
 
 }
 
-slide2();
+slidesCroche();
 
 </script>
 
