@@ -19,7 +19,7 @@ text-align:center;
 overflow-x:hidden;
 }
 
-/* CARTA INICIAL */
+/* CARTA */
 
 #carta{
 position:fixed;
@@ -244,6 +244,16 @@ Aqui é um pequeno retrato visual para eu e você poder admirar com mais facilid
 
 </div>
 
+<!-- MUSICAS -->
+
+<audio id="musica1" loop>
+<source src="musica.mp3">
+</audio>
+
+<audio id="musica2" loop>
+<source src="musica2.mp3">
+</audio>
+
 <script>
 
 /* ABRIR SITE */
@@ -255,7 +265,7 @@ document.getElementById("menu").style.display="block";
 
 }
 
-/* TROCAR PAGINAS */
+/* ABRIR PAGINA */
 
 function abrirPagina(id){
 
@@ -265,7 +275,27 @@ for(let i=0;i<paginas.length;i++){
 paginas[i].style.display="none";
 }
 
+/* parar musicas */
+
+document.getElementById("musica1").pause();
+document.getElementById("musica1").currentTime=0;
+
+document.getElementById("musica2").pause();
+document.getElementById("musica2").currentTime=0;
+
+/* mostrar pagina */
+
 document.getElementById(id).style.display="block";
+
+/* tocar musica correta */
+
+if(id==="historia"){
+document.getElementById("musica1").play();
+}
+
+if(id==="croche"){
+document.getElementById("musica2").play();
+}
 
 }
 
