@@ -11,6 +11,19 @@
 
 /* CONFIGURAÇÃO GERAL */
 
+/* CONTADOR */
+
+#contador{
+background:white;
+color:#ff4d6d;
+padding:20px;
+border-radius:20px;
+font-size:1.5em;
+margin:30px auto;
+width:80%;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
 body{
 margin:0;
 font-family:Arial;
@@ -252,12 +265,17 @@ Abrir ❤️
 
 <div class="pagina" id="historia">
 
+<h1 id="titulo"></h1>
+
+<div id="contador">
+❤️ Estamos juntos há ❤️ <br>
+<b id="tempo"></b>
+</div>
+
 <h1>Nossa História ❤️</h1>
 
 <div class="texto">
-
 QUE SEJAMOS FELIZES MEU CUSCUZ
-
 <br><br>
 
 Como já te falei, "o tempo é o nosso bem mais precioso". Olhar para 2026 e saber que iniciei o ciclo de uma vida inteira com você me traz uma felicidade que eu não sabia que existia. Você não é apenas a minha melhor escolha, você é o porto seguro onde meu coração decidiu pousar.
@@ -276,22 +294,27 @@ Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos q
 
 <div class="slide historiaSlide">
 <img src="w2.jpeg">
+<p>Um dia simples que virou lembrança</p>
 </div>
 
 <div class="slide historiaSlide">
 <img src="w3.jpeg">
+<p>Sua beleza radiante</p>
 </div>
 
 <div class="slide historiaSlide">
 <img src="w4.jpeg">
+<p>Tentando imitar figurinha kkk</p>
 </div>
 
 <div class="slide historiaSlide">
 <img src="w5.jpeg">
+<p>Sem reação segundos antes</p>
 </div>
 
 <div class="slide historiaSlide">
 <img src="w6.jpeg">
+<p>Eu escolheria você mil vezes</p>
 </div>
 
 </div>
@@ -377,6 +400,53 @@ DE SUAS QUALIDADES QUANDO NÃO ESTIVER NO SEU MELHOR ASTRAL.
 
 <script>
 
+const dataInicio = new Date("2026-01-09");
+/* CONTADOR */
+
+function atualizarContador(){
+
+const agora = new Date();
+const diff = agora - dataInicio;
+
+const dias = Math.floor(diff/(1000*60*60*24));
+const horas = Math.floor((diff/(1000*60*60))%24);
+const minutos = Math.floor((diff/(1000*60))%60);
+const segundos = Math.floor((diff/1000)%60);
+
+document.getElementById("tempo").innerHTML =
+dias+" dias "+horas+"h "+minutos+"m "+segundos+"s";
+}
+setInterval(atualizarContador,1000);
+
+function atualizarTitulo(){
+const agora = new Date();
+let meses =
+(agora.getFullYear()-dataInicio.getFullYear())*12+
+(agora.getMonth()-dataInicio.getMonth());
+if(agora.getDate()<9){
+meses--;
+}
+if(meses<0){
+meses=0;
+}
+let frase="";
+if(meses==12){
+frase="Hoje celebramos 1 ano de amor ❤️";
+}
+else if(meses==0){
+frase="Rumo ao Nosso Primeiro Mês Amor ❤️";
+}
+else if(meses==1){
+frase="Feliz Nosso 1 Mês Amor ❤️";
+}
+else{
+frase="Feliz Nosso "+meses+" Meses Amor ❤️";
+}
+document.getElementById("titulo").innerText=frase;
+}
+
+atualizarTitulo();
+setInterval(atualizarTitulo,3600000);
 /* ABRIR SITE */
 
 function abrirSite(){
