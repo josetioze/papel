@@ -9,6 +9,17 @@
 
 <style>
 
+/* EMAIL RODAPÉ */
+
+.email{
+position:fixed;
+bottom:10px;
+right:15px;
+font-size:11px;
+opacity:0.6;
+color:white;
+z-index:5;
+}
 /* CONFIGURAÇÃO GERAL */
 
 /* CONTADOR */
@@ -388,6 +399,7 @@ aplaudindo, pulando e gritando "bota cuscuz" a cada criação. Aqui é um pequen
 
 <div class="slide crocheSlide">
 <img src="c3.jpeg">
+<p>Em cada ponto, um detalhe de elegância; em cada pétala, um carinho que nunca murcha.</p>
 </div>
 
 <div class="slide crocheSlide">
@@ -464,6 +476,16 @@ aplaudindo, pulando e gritando "bota cuscuz" a cada criação. Aqui é um pequen
 <source src="musica2.mp3">
 </audio>
 
+<audio id="musica3" loop>
+<source src="musica3.mp3">
+</audio>
+  
+<div class="email">
+<a href="mailto:tioze.jmps@gmail.com">
+contato: tioze.jmps@gmail.com
+</a>
+</div>
+  
 <script>
 
 const dataInicio = new Date("2026-02-09");
@@ -536,17 +558,22 @@ document.getElementById("menu").style.display="none";
 
 let m1=document.getElementById("musica");
 let m2=document.getElementById("musica2");
+let m3=document.getElementById("musica3");
 
+  
 m1.pause();
 m2.pause();
-
+m3.pause();
+  
 m1.currentTime=0;
 m2.currentTime=0;
+m3.currentTime=0;
 
 document.getElementById(id).style.display="block";
 
 if(id==="historia") m1.play();
 if(id==="croche") m2.play();
+if(id==="sonho") m3.play();
 
 }
 
