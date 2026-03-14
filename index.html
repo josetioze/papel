@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
 <meta charset="UTF-8">
@@ -70,14 +71,20 @@ max-width:900px;
 margin:auto;
 }
 
-/* PAGINA HISTORIA FUNDO BEGE */
+/* PAGINA HISTORIA */
 
 #historia{
 background:#d8c3a5;
-color:white;
+min-height:100vh;
+}
+
+/* PAGINA CROCHE */
+
+#croche{
+background:linear-gradient(135deg,#2e7d32,#4caf50,#a5d6a7);
+min-height:100vh;
 position:relative;
 overflow:hidden;
-min-height:100vh;
 }
 
 /* TEXTO */
@@ -114,9 +121,7 @@ z-index:2;
 }
 
 @keyframes fall{
-to{
-transform:translateY(100vh);
-}
+to{transform:translateY(100vh);}
 }
 
 /* ESTRELAS */
@@ -134,42 +139,90 @@ from{opacity:0.2;}
 to{opacity:1;}
 }
 
+/* FIOS CROCHE */
+
+#fio1,#fio2{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:0;
+}
+
+.fio{
+stroke:#f5deb3;
+stroke-width:4;
+fill:none;
+stroke-dasharray:2000;
+stroke-dashoffset:2000;
+}
+
+.fio1{animation:costurar1 18s linear infinite;}
+.fio2{animation:costurar2 20s linear infinite;}
+
+@keyframes costurar1{
+to{stroke-dashoffset:0;}
+}
+
+@keyframes costurar2{
+to{stroke-dashoffset:0;}
+}
+
+/* BRILHOS */
+
+.brilho{
+position:fixed;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+opacity:0.8;
+animation:brilhar linear infinite;
+pointer-events:none;
+}
+
+@keyframes brilhar{
+
+0%{
+transform:translateY(110vh);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-10vh);
+opacity:0;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- CARTA -->
-
 <div id="carta">
 
 <h2>💌 Tenho algo para você...</h2>
 
-<button onclick="abrirSite()">
-Abrir ❤️
-</button>
+<button onclick="abrirSite()">Abrir ❤️</button>
 
 </div>
-
-<!-- MENU -->
 
 <div id="menu">
 
-<button onclick="abrirPagina('historia')">
-1 - Veja nossa história
-</button>
-
-<button onclick="abrirPagina('croche')">
-2 - Tenho algo para você
-</button>
-
-<button onclick="abrirPagina('sonho')">
-3 - Vamos sonhar
-</button>
+<button onclick="abrirPagina('historia')">1 - Veja nossa história</button>
+<button onclick="abrirPagina('croche')">2 - Tenho algo para você</button>
+<button onclick="abrirPagina('sonho')">3 - Vamos sonhar</button>
 
 </div>
 
-<!-- PAGINA HISTORIA -->
+<!-- HISTORIA -->
 
 <div class="pagina" id="historia">
 
@@ -179,63 +232,29 @@ Abrir ❤️
 
 QUE SEJAMOS FELIZES MEU CUSCUZ
 
-<br><br>
-
-Como já te falei, "o tempo é o nosso bem mais precioso". Olhar para 2026 e saber que iniciei o ciclo de uma vida inteira com você me traz uma felicidade que eu não sabia que existia. Você não é apenas a minha melhor escolha, você é o porto seguro onde meu coração decidiu pousar.
-
-Olhar para nós e para o que estamos construindo me emociona profundamente. Mas o que me tira o fôlego não é apenas o "nós", é a mulher monumental e extraordinária que você se revela a cada dia. Sua força não é barulhenta, ela é constante, a sua sabedoria guia nossos passos e o seu jeito de enfrentar as adversidades com esse seu "jeitinho" único me faz te admirar como nunca admirei ninguém.
-
-Minha Mulher-Maravilha, ter você ao meu lado não é sorte, é o maior privilégio da minha existência.
-
-Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos que ainda vamos tirar do papel. Obrigado por ser você e, unicamente, você!❤️
-
-</div>
-
-<h2>Nossos Momentos 📸</h2>
-
-<div class="slide historiaSlide">
-<img src="w1.jpeg">
-<p>Nossa primeira foto juntos</p>
-</div>
-
-<div class="slide historiaSlide">
-<img src="w2.jpeg">
-<p>Um dia simples que virou lembrança</p>
-</div>
-
-<div class="slide historiaSlide">
-<img src="w3.jpeg">
-<p>Sua beleza radiante</p>
-</div>
-
-<div class="slide historiaSlide">
-<img src="w4.jpeg">
-<p>Tentando imitar figurinha kkk</p>
-</div>
-
-<div class="slide historiaSlide">
-<img src="w5.jpeg">
-<p>Sem reação segundos antes</p>
-</div>
-
-<div class="slide historiaSlide">
-<img src="w6.jpeg">
-<p>Eu escolheria você mil vezes</p>
 </div>
 
 </div>
 
-<!-- PAGINA CROCHE -->
+<!-- CROCHE -->
 
 <div class="pagina" id="croche">
+
+<!-- FIOS -->
+
+<svg id="fio1">
+<path class="fio fio1" d="M0 200 Q200 50 400 200 T800 200 T1200 300 T1600 200"/>
+</svg>
+
+<svg id="fio2">
+<path class="fio fio2" d="M1600 400 Q1400 250 1200 400 T800 400 T400 500 T0 400"/>
+</svg>
 
 <h1>O Encanto do Crochê</h1>
 
 <div class="texto">
 
-MEU CUSCUZ, FIZ PARA VOCÊ PODER TER UMA ADMIRAÇÃO 
-DE SUAS QUALIDADES QUANDO NÃO ESTIVER NO SEU MELHOR ASTRAL. 
-Aproveita Bjssss
+Falam que o artesanato é a linguagem do coração, agora, vendo o que você cria, eu acredito nisso...
 
 </div>
 
@@ -244,7 +263,7 @@ Aproveita Bjssss
 </div>
 
 <div class="slide crocheSlide">
-<video autoplay muted loop>
+<video autoplay muted playsinline>
 <source src="v1.mp4">
 </video>
 </div>
@@ -253,34 +272,18 @@ Aproveita Bjssss
 <img src="c2.jpeg">
 </div>
 
-<div class="slide crocheSlide">
-<img src="c3.jpeg">
 </div>
-
-<div class="slide crocheSlide">
-<img src="c4.jpeg">
-</div>
-
-</div>
-
-<!-- PAGINA SONHO -->
 
 <div class="pagina" id="sonho">
-
 <h1>Vamos Sonhar ✨</h1>
-
-<p>Aqui você pode colocar outro slideshow ou planos para o futuro.</p>
-
 </div>
 
-<!-- MUSICAS -->
-
 <audio id="musica" loop>
-<source src="musica.mp3" type="audio/mpeg">
+<source src="musica.mp3">
 </audio>
 
 <audio id="musica2" loop>
-<source src="musica2.mp3" type="audio/mpeg">
+<source src="musica2.mpeg">
 </audio>
 
 <script>
@@ -288,10 +291,8 @@ Aproveita Bjssss
 /* ABRIR SITE */
 
 function abrirSite(){
-
 document.getElementById("carta").style.display="none";
 document.getElementById("menu").style.display="block";
-
 }
 
 /* ABRIR PAGINA */
@@ -312,96 +313,29 @@ let m2=document.getElementById("musica2");
 m1.pause();
 m2.pause();
 
-m1.currentTime=0;
-m2.currentTime=0;
-
 document.getElementById(id).style.display="block";
 
-if(id==="historia"){
-m1.play();
-}
-
-if(id==="croche"){
-m2.play();
-}
+if(id==="historia"){m1.play();}
+if(id==="croche"){m2.play();}
 
 }
 
-/* SLIDES HISTORIA */
-
-let slideHistoria=0;
-
-function slidesHistoria(){
-
-let slides=document.getElementsByClassName("historiaSlide");
-
-for(let i=0;i<slides.length;i++){
-slides[i].style.display="none";
-}
-
-slideHistoria++;
-
-if(slideHistoria>slides.length){
-slideHistoria=1;
-}
-
-slides[slideHistoria-1].style.display="block";
-
-setTimeout(slidesHistoria,8000);
-
-}
-
-slidesHistoria();
-
-/* SLIDES CROCHE */
-
-let slideCroche=0;
-
-function slidesCroche(){
-
-let slides=document.getElementsByClassName("crocheSlide");
-
-for(let i=0;i<slides.length;i++){
-slides[i].style.display="none";
-}
-
-slideCroche++;
-
-if(slideCroche>slides.length){
-slideCroche=1;
-}
-
-slides[slideCroche-1].style.display="block";
-
-setTimeout(slidesCroche,8000);
-
-}
-
-slidesCroche();
-
-/* CORAÇÕES */
+/* CORAÇÕES HISTORIA */
 
 function criarCoracao(){
 
 if(document.getElementById("historia").style.display !== "block") return;
 
 const heart=document.createElement("div");
-
 heart.classList.add("heart");
-
 heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"vw";
-
 heart.style.animationDuration=(Math.random()*3+2)+"s";
 
 document.body.appendChild(heart);
 
-setTimeout(()=>{
-
-heart.remove();
-
-},5000)
+setTimeout(()=>{heart.remove();},5000)
 
 }
 
@@ -409,29 +343,62 @@ setInterval(criarCoracao,300);
 
 /* ESTRELAS */
 
-function criarEstrelas(){
-
 for(let i=0;i<80;i++){
 
 let star=document.createElement("div");
-
 star.classList.add("star");
 
 star.innerHTML="✦";
 
 star.style.left=Math.random()*100+"vw";
-
 star.style.top=Math.random()*100+"vh";
-
-star.style.animationDuration=(Math.random()*3+1)+"s";
 
 document.body.appendChild(star);
 
 }
 
+/* BRILHOS CROCHE */
+
+for(let i=0;i<60;i++){
+
+let brilho=document.createElement("div");
+
+brilho.className="brilho";
+
+brilho.style.left=Math.random()*100+"vw";
+brilho.style.animationDuration=(Math.random()*10+5)+"s";
+
+document.body.appendChild(brilho);
+
 }
 
-criarEstrelas();
+/* SLIDES CROCHE */
+
+let slideIndex=0;
+
+function mostrarSlides(){
+
+let slides=document.getElementsByClassName("crocheSlide");
+
+for(let i=0;i<slides.length;i++){
+slides[i].style.display="none";
+}
+
+slideIndex++;
+
+if(slideIndex>slides.length){
+slideIndex=1;
+}
+
+let slideAtual=slides[slideIndex-1];
+
+slideAtual.style.display="block";
+
+setTimeout(mostrarSlides,8000);
+
+}
+
+mostrarSlides();
 
 </script>
 
