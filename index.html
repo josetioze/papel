@@ -277,7 +277,6 @@ body{
   transform-style:preserve-3d;
   transition:transform 0.7s ease;
 
-  overflow:hidden; /* impede vazamento */
 }
 
 /* FRENTE E VERSO */
@@ -318,18 +317,24 @@ body{
   background: linear-gradient(135deg, #fdf2f8, #fce7f3);
   color: #831843;
   transform: rotateY(180deg);
-  font-size: 1.05em;
-  line-height: 1.6;
+  font-size: 0.95em; /* Diminuído levemente para caber mais texto */
+  line-height: 1.4;
   font-weight: 600;
   box-shadow: 0 8px 30px rgba(244, 114, 182, 0.5);
-
-  overflow-y:auto;      /* scroll interno */
-  justify-content:flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza o texto verticalmente */
+  padding: 15px; /* Espaçamento interno */
+  box-sizing: border-box;
+  text-align: center;
+  overflow-y: auto; /* Permite rolar se o texto for muito grande */
 }
 
-.card-back .icone-back{
-  font-size:1.6em;
-  margin-bottom:10px;
+.card-back .icone-back {
+  font-size: 1.4em;
+  margin-bottom: 5px;
+  display: block;
 }
 
 /* BOTÃO REVELAR */
