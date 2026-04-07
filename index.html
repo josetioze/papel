@@ -726,12 +726,14 @@ function abrirPagina(id){
   if(id==="razoes")   m4.play();
 
   /* Resetar cards de razões ao reabrir */
-  if(id==="razoes"){
-    document.querySelectorAll('.card-flip').forEach(c=>c.classList.remove('virado'));
-    totalVirados=0;
-    document.getElementById('btn-revelar').style.display='block';
-    document.getElementById('mensagem-final').style.display='none';
-  }
+ if(id==="razoes"){
+  document.querySelectorAll('.card-flip').forEach(c=>{
+    c.classList.remove('virado');
+    delete c.dataset.visto; // limpa histórico
+  });
+  totalVirados = 0;
+  document.getElementById('btn-revelar').style.display = 'block';
+  document.getElementById('mensagem-final').style.display = 'none';
 }
 
 /* ===== SLIDES HISTÓRIA ===== */
@@ -812,8 +814,8 @@ function criarPetala(){
 setInterval(criarPetala,600);
 
 /* ===== CARDS RAZÕES ===== */
-let totalVirados=0;
-const totalCards=document.querySelectorAll('.card-flip').length;
+let totalVirados = 0;
+const totalCards = document.querySelectorAll('.card-flip').length;
 
 function virarCard(el){
 
@@ -827,13 +829,13 @@ function virarCard(el){
       }
     });
 
-    // Se o card ainda não foi visto
+    // Conta apenas uma vez por card
     if(!el.dataset.visto){
       el.dataset.visto = "true";
       totalVirados++;
     }
 
-    // Abre o card atual
+    // Abre o atual
     el.classList.add('virado');
 
     // Se chegou no último → abre todos
@@ -845,13 +847,13 @@ function virarCard(el){
 
 function revelarTodos(){
   document.querySelectorAll('.card-flip').forEach(c=>c.classList.add('virado'));
-  totalVirados=totalCards;
+  totalVirados = totalCards;
   mostrarMensagem();
 }
 
 function mostrarMensagem(){
-  document.getElementById('mensagem-final').style.display='block';
-  document.getElementById('btn-revelar').style.display='none';
+  document.getElementById('mensagem-final').style.display = 'block';
+  document.getElementById('btn-revelar').style.display = 'none';
 }
 
 </script>
