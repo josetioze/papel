@@ -258,8 +258,8 @@ body{
 
 /* CARD FLIP */
 .card-flip {
-  width: 340px;        /* Aumenta a largura */
-  min-height: 420px;   /* Aumenta bastante a altura */
+  width: 360px;        /* largura maior */
+  height: 480px;       /* altura fixa melhor para flip */
   perspective: 1000px;
   cursor: pointer;
   margin-bottom: 15px;
@@ -267,34 +267,40 @@ body{
 
 .card-flip:hover .card-inner,
 .card-flip.virado .card-inner{
-  transform:rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .card-inner{
   width:100%;
-  min-height:420px; /* igual ao card */
+  height:100%;
   position:relative;
   transform-style:preserve-3d;
   transition:transform 0.7s ease;
 }
 
+/* FRENTE E VERSO */
 .card-front,
 .card-back {
-  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
-  color: #831843;
-  transform: rotateY(180deg);
-  font-size: 1.05em;     /* texto maior */
-  line-height: 1.6;      /* mais espaçado */
-  font-weight: 600;
-  box-shadow: 0 8px 30px rgba(244, 114, 182, 0.5);
-  text-align: center;
-  padding: 25px;         /* mais espaço interno */
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:20px;
+  backface-visibility:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  box-sizing:border-box;
+  text-align:center;
 }
 
+/* FRENTE */
 .card-front{
   background:linear-gradient(135deg,#be185d,#9d174d);
   box-shadow:0 8px 30px rgba(244,114,182,0.4);
   font-size:3em;
+  color:white;
 }
 
 .card-front span.numero{
@@ -305,20 +311,21 @@ body{
   letter-spacing:1px;
 }
 
+/* VERSO */
 .card-back {
   background: linear-gradient(135deg, #fdf2f8, #fce7f3);
   color: #831843;
   transform: rotateY(180deg);
-  font-size: 1em;       /* Fonte levemente maior para leitura */
-  line-height: 1.4;
+  font-size: 1.05em;
+  line-height: 1.6;
   font-weight: 600;
   box-shadow: 0 8px 30px rgba(244, 114, 182, 0.5);
-  text-align: center;   /* Centraliza o texto da razão */
+  overflow-y:auto; /* scroll se precisar */
 }
 
 .card-back .icone-back{
   font-size:1.6em;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
 /* BOTÃO REVELAR */
