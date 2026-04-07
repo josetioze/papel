@@ -257,11 +257,12 @@ body{
 }
 
 /* CARD FLIP */
-.card-flip{
-  width:200px;
-  height:220px;
-  perspective:1000px;
-  cursor:pointer;
+.card-flip {
+  width: 280px;         /* Aumentado de 200px para 280px */
+  min-height: 320px;    /* Mudado de height fixo para min-height para ser flexível */
+  perspective: 1000px;
+  cursor: pointer;
+  margin-bottom: 10px;  /* Espaçamento extra */
 }
 
 .card-flip:hover .card-inner,
@@ -278,18 +279,19 @@ body{
 }
 
 .card-front,
-.card-back{
-  position:absolute;
-  width:100%;
-  height:100%;
-  border-radius:20px;
-  backface-visibility:hidden;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:15px;
-  box-sizing:border-box;
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;        /* Aumentado o respiro interno */
+  box-sizing: border-box;
+  overflow-y: auto;     /* Adiciona scroll caso o texto ainda seja muito grande */
 }
 
 .card-front{
@@ -306,14 +308,15 @@ body{
   letter-spacing:1px;
 }
 
-.card-back{
-  background:linear-gradient(135deg,#fdf2f8,#fce7f3);
-  color:#831843;
-  transform:rotateY(180deg);
-  font-size:0.9em;
-  line-height:1.5;
-  font-weight:600;
-  box-shadow:0 8px 30px rgba(244,114,182,0.5);
+.card-back {
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  color: #831843;
+  transform: rotateY(180deg);
+  font-size: 1em;       /* Fonte levemente maior para leitura */
+  line-height: 1.4;
+  font-weight: 600;
+  box-shadow: 0 8px 30px rgba(244, 114, 182, 0.5);
+  text-align: center;   /* Centraliza o texto da razão */
 }
 
 .card-back .icone-back{
