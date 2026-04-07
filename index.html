@@ -10,243 +10,370 @@
     </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Nosso Universo ❤️</title>
 
 <style>
 
 /* EMAIL RODAPÉ */
-
 .email{
-position:fixed;
-bottom:10px;
-right:15px;
-font-size:11px;
-opacity:0.6;
-color:white;
-z-index:5;
+  position:fixed;
+  bottom:10px;
+  right:15px;
+  font-size:11px;
+  opacity:0.6;
+  color:white;
+  z-index:5;
 }
+
 /* CONFIGURAÇÃO GERAL */
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+}
 
 /* CONTADOR */
-
 #contador{
-background:white;
-color:#ff4d6d;
-padding:20px;
-border-radius:20px;
-font-size:1.5em;
-margin:30px auto;
-width:80%;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
-
-body{
-margin:0;
-font-family:Arial;
-background:#0f172a;
-color:white;
-text-align:center;
-overflow-x:hidden;
+  background:white;
+  color:#ff4d6d;
+  padding:20px;
+  border-radius:20px;
+  font-size:1.5em;
+  margin:30px auto;
+  width:80%;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 /* CARTA INICIAL */
-
 #carta{
-position:fixed;
-width:100%;
-height:100vh;
-background:#0f172a;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:10;
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:#0f172a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:10;
 }
 
 #carta button{
-font-size:22px;
-padding:20px 40px;
-border:none;
-border-radius:20px;
-background:#ff4d6d;
-color:white;
-cursor:pointer;
+  font-size:22px;
+  padding:20px 40px;
+  border:none;
+  border-radius:20px;
+  background:#ff4d6d;
+  color:white;
+  cursor:pointer;
 }
 
 /* MENU */
-
 #menu{
-display:none;
-background:#111827;
-padding:20px;
+  display:none;
+  background:#111827;
+  padding:20px;
 }
 
 #menu button{
-margin:10px;
-padding:15px 25px;
-border:none;
-border-radius:15px;
-background:#ff4d6d;
-color:white;
-font-size:16px;
-cursor:pointer;
+  margin:10px;
+  padding:15px 25px;
+  border:none;
+  border-radius:15px;
+  background:#ff4d6d;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
 }
 
 /* PAGINAS */
-
 .pagina{
-display:none;
-padding:30px;
-max-width:900px;
-margin:auto;
+  display:none;
+  padding:30px;
+  max-width:900px;
+  margin:auto;
 }
 
-/* PAGINA HISTORIA (FUNDO BEGE) */
-
+/* PAGINA HISTORIA */
 #historia{
-background:#d8c3a5;
-color:white;
-position:relative;
-overflow:hidden;
-min-height:100vh;
+  background:#d8c3a5;
+  color:white;
+  position:relative;
+  overflow:hidden;
+  min-height:100vh;
 }
 
 /* TEXTO */
-
 .texto{
-font-size:1.2em;
-margin:30px;
-line-height:1.6em;
+  font-size:1.2em;
+  margin:30px;
+  line-height:1.6em;
 }
 
 /* SLIDES */
-
-.slide{
-display:none;
-}
+.slide{ display:none; }
 
 .slide img,
 .slide video{
-width:100%;
-max-width:600px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
+  width:100%;
+  max-width:600px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* CORAÇÕES (PAGINA 1) */
-
+/* CORAÇÕES */
 .heart{
-position:fixed;
-top:-10px;
-color:red;
-font-size:20px;
-animation:fall linear infinite;
-z-index:2;
+  position:fixed;
+  top:-10px;
+  color:red;
+  font-size:20px;
+  animation:fall linear infinite;
+  z-index:2;
 }
 
 @keyframes fall{
-to{
-transform:translateY(100vh);
-}
+  to{ transform:translateY(100vh); }
 }
 
 /* ESTRELAS */
-
 .star{
-position:fixed;
-color:white;
-font-size:10px;
-animation:twinkle 2s infinite alternate;
-z-index:1;
+  position:fixed;
+  color:white;
+  font-size:10px;
+  animation:twinkle 2s infinite alternate;
+  z-index:1;
+  pointer-events:none;
 }
 
 @keyframes twinkle{
-from{opacity:0.2;}
-to{opacity:1;}
+  from{opacity:0.2;}
+  to{opacity:1;}
 }
 
-/* FUNDO CROCHE (PAGINA 2) */
-
+/* PAGINA CROCHE */
 #croche{
-background:linear-gradient(135deg,#2e7d32,#4caf50,#a5d6a7);
-color:white;
-position:relative;
-overflow:hidden;
-min-height:100vh;
+  background:linear-gradient(135deg,#2e7d32,#4caf50,#a5d6a7);
+  color:white;
+  position:relative;
+  overflow:hidden;
+  min-height:100vh;
 }
-
-/* FIOS COSTURANDO */
 
 #fio1,#fio2{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-z-index:-1;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
 }
+
 #croche .texto,
 #croche img,
 #croche video,
 #croche h1{
-position:relative;
-z-index:2;
+  position:relative;
+  z-index:2;
 }
+
 .fio{
-stroke:#f5deb3;
-stroke-width:4;
-fill:none;
-stroke-dasharray:2000;
-stroke-dashoffset:2000;
+  stroke:#f5deb3;
+  stroke-width:4;
+  fill:none;
+  stroke-dasharray:2000;
+  stroke-dashoffset:2000;
 }
 
-.fio1{
-animation:costurar1 18s linear infinite;
-}
+.fio1{ animation:costurar1 18s linear infinite; }
+.fio2{ animation:costurar2 20s linear infinite; }
 
-.fio2{
-animation:costurar2 20s linear infinite;
-}
-
-@keyframes costurar1{
-to{stroke-dashoffset:0;}
-}
-
-@keyframes costurar2{
-to{stroke-dashoffset:0;}
-}
+@keyframes costurar1{ to{stroke-dashoffset:0;} }
+@keyframes costurar2{ to{stroke-dashoffset:0;} }
 
 /* BRILHOS */
-
 .brilho{
-position:fixed;
-width:6px;
-height:6px;
-background:white;
-border-radius:50%;
-opacity:0.8;
-animation:brilhar linear infinite;
-pointer-events:none;
+  position:fixed;
+  width:6px;
+  height:6px;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+  animation:brilhar linear infinite;
+  pointer-events:none;
 }
 
 @keyframes brilhar{
-
-0%{
-transform:translateY(110vh);
-opacity:0;
+  0%  { transform:translateY(110vh); opacity:0; }
+  50% { opacity:1; }
+  100%{ transform:translateY(-10vh); opacity:0; }
 }
 
-50%{
-opacity:1;
+/* ===== PÁGINA RAZÕES ===== */
+#razoes{
+  min-height:100vh;
+  padding:30px 20px 60px;
+  background:radial-gradient(ellipse at top,#3b0764 0%,#0f172a 70%);
+  position:relative;
+  max-width:100%;
+  box-sizing:border-box;
 }
 
-100%{
-transform:translateY(-10vh);
-opacity:0;
+#razoes h1{
+  font-size:2em;
+  margin-bottom:8px;
+  color:#f9a8d4;
+  text-shadow:0 0 20px #f472b6;
 }
 
+#razoes .subtitulo{
+  font-size:1em;
+  color:#e879f9;
+  margin-bottom:10px;
+  font-style:italic;
+}
+
+.instrucao{
+  font-size:0.85em;
+  color:#c084fc;
+  margin-bottom:25px;
+  font-style:italic;
+  position:relative;
+  z-index:2;
+}
+
+/* GRID DE CARDS */
+.razoes-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  max-width:960px;
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+
+/* CARD FLIP */
+.card-flip{
+  width:200px;
+  height:220px;
+  perspective:1000px;
+  cursor:pointer;
+}
+
+.card-flip:hover .card-inner,
+.card-flip.virado .card-inner{
+  transform:rotateY(180deg);
+}
+
+.card-inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform 0.7s ease;
+}
+
+.card-front,
+.card-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:20px;
+  backface-visibility:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  box-sizing:border-box;
+}
+
+.card-front{
+  background:linear-gradient(135deg,#be185d,#9d174d);
+  box-shadow:0 8px 30px rgba(244,114,182,0.4);
+  font-size:3em;
+}
+
+.card-front span.numero{
+  font-size:0.45em;
+  color:#fce7f3;
+  margin-top:8px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.card-back{
+  background:linear-gradient(135deg,#fdf2f8,#fce7f3);
+  color:#831843;
+  transform:rotateY(180deg);
+  font-size:0.9em;
+  line-height:1.5;
+  font-weight:600;
+  box-shadow:0 8px 30px rgba(244,114,182,0.5);
+}
+
+.card-back .icone-back{
+  font-size:1.6em;
+  margin-bottom:8px;
+}
+
+/* BOTÃO REVELAR */
+#btn-revelar{
+  margin:30px auto 10px;
+  display:block;
+  padding:14px 32px;
+  background:linear-gradient(135deg,#ec4899,#be185d);
+  color:white;
+  border:none;
+  border-radius:30px;
+  font-size:1em;
+  cursor:pointer;
+  box-shadow:0 5px 20px rgba(236,72,153,0.5);
+  transition:transform 0.2s;
+  position:relative;
+  z-index:2;
+}
+#btn-revelar:hover{ transform:scale(1.05); }
+
+/* MENSAGEM FINAL */
+#mensagem-final{
+  display:none;
+  background:rgba(255,255,255,0.07);
+  border:1px solid #f472b6;
+  border-radius:20px;
+  padding:25px;
+  max-width:600px;
+  margin:30px auto 0;
+  font-size:1.1em;
+  line-height:1.7;
+  color:#fce7f3;
+  position:relative;
+  z-index:2;
+  animation:aparecer 1s ease;
+}
+
+@keyframes aparecer{
+  from{ opacity:0; transform:translateY(20px); }
+  to  { opacity:1; transform:translateY(0); }
+}
+
+/* PÉTALAS */
+.petala{
+  position:fixed;
+  animation:cair-petala linear infinite;
+  pointer-events:none;
+  z-index:0;
+}
+
+@keyframes cair-petala{
+  0%  { transform:translateY(-20px) rotate(0deg); opacity:0; }
+  10% { opacity:1; }
+  90% { opacity:1; }
+  100%{ transform:translateY(105vh) rotate(360deg); opacity:0; }
 }
 
 </style>
@@ -255,459 +382,436 @@ opacity:0;
 <body>
 
 <!-- CARTA INICIAL -->
-
 <div id="carta">
-
-<h2>💌 Tenho algo para você...</h2>
-
-<button onclick="abrirSite()">
-Abrir ❤️
-</button>
-
+  <h2>💌 Tenho algo para você...</h2>
+  <button onclick="abrirSite()">Abrir ❤️</button>
 </div>
 
 <!-- MENU -->
-
 <div id="menu">
-
-<button onclick="abrirPagina('historia')">
-1 - Veja nossa história
-</button>
-
-<button onclick="abrirPagina('croche')">
-2 - Tenho algo para você
-</button>
-
-<button onclick="abrirPagina('sonho')">
-3 - Vamos sonhar
-</button>
-
+  <button onclick="abrirPagina('historia')">1 - Veja nossa história</button>
+  <button onclick="abrirPagina('croche')">2 - Tenho algo para você</button>
+  <button onclick="abrirPagina('sonho')">3 - Vamos sonhar</button>
+  <button onclick="abrirPagina('razoes')">4 - Razões pra te Amar 💕</button>
 </div>
 
 <!-- PAGINA HISTORIA -->
-
 <div class="pagina" id="historia">
-QUE SEJAMOS FELIZES MEU CUSCUZ
-<h1 id="titulo"></h1>
+  QUE SEJAMOS FELIZES MEU CUSCUZ
+  <h1 id="titulo"></h1>
 
-<div id="contador">
-❤️ Estamos juntos há ❤️ <br>
-<b id="tempo"></b>
-</div>
+  <div id="contador">
+    ❤️ Estamos juntos há ❤️ <br>
+    <b id="tempo"></b>
+  </div>
 
+  <div class="texto">
+    <br><br>
+    Como já te falei, "o tempo é o nosso bem mais precioso". Olhar para 2026 e saber que iniciei o ciclo de uma vida inteira com você me traz uma felicidade que eu não sabia que existia. Você não é apenas a minha melhor escolha, você é o porto seguro onde meu coração decidiu pousar.
+    Olhar para nós e para o que estamos construindo me emociona profundamente. Mas o que me tira o fôlego não é apenas o "nós", é a mulher monumental e extraordinária que você se revela a cada dia. Sua força não é barulhenta, ela é constante, a sua sabedoria guia nossos passos e o seu jeito de enfrentar as adversidades com esse seu "jeitinho" único me faz te admirar como nunca admirei ninguém.
+    Minha Mulher-Maravilha, ter você ao meu lado não é sorte, é o maior privilégio da minha existência. 
+    Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos que ainda vamos tirar do papel. Obrigado por ser você e, unicamente, você!❤️
+  </div>
 
-<div class="texto">
+  <h2>Nossos Momentos 📸</h2>
 
-<br><br>
-
-Como já te falei, "o tempo é o nosso bem mais precioso". Olhar para 2026 e saber que iniciei o ciclo de uma vida inteira com você me traz uma felicidade que eu não sabia que existia. Você não é apenas a minha melhor escolha, você é o porto seguro onde meu coração decidiu pousar.
-Olhar para nós e para o que estamos construindo me emociona profundamente. Mas o que me tira o fôlego não é apenas o "nós", é a mulher monumental e extraordinária que você se revela a cada dia. Sua força não é barulhenta, ela é constante, a sua sabedoria guia nossos passos e o seu jeito de enfrentar as adversidades com esse seu "jeitinho" único me faz te admirar como nunca admirei ninguém.
-Minha Mulher-Maravilha, ter você ao meu lado não é sorte, é o maior privilégio da minha existência. 
-Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos que ainda vamos tirar do papel. Obrigado por ser você e, unicamente, você!❤️
-
-</div>
-
-<h2>Nossos Momentos 📸</h2>
-
-<div class="slide historiaSlide">
-<img src="w1.jpeg">
-<p>Nossa primeira foto juntos</p>
-</div>
-
-<div class="slide historiaSlide">
-<img src="w2.jpeg">
-<p>Um dia simples que virou lembrança</p>
-</div>
-
-<div class="slide historiaSlide">
-<img src="w3.jpeg">
-<p>Sua beleza radiante</p>
-</div>
-
-<div class="slide historiaSlide">
-<img src="w4.jpeg">
-<p>Tentando imitar figurinha kkk</p>
-</div>
-
-<div class="slide historiaSlide">
-<img src="w5.jpeg">
-<p>Sem reação segundos antes</p>
-</div>
-
-<div class="slide historiaSlide">
-<img src="w6.jpeg">
-<p>Eu escolheria você mil vezes</p>
-</div>
-
+  <div class="slide historiaSlide">
+    <img src="w1.jpeg">
+    <p>Nossa primeira foto juntos</p>
+  </div>
+  <div class="slide historiaSlide">
+    <img src="w2.jpeg">
+    <p>Um dia simples que virou lembrança</p>
+  </div>
+  <div class="slide historiaSlide">
+    <img src="w3.jpeg">
+    <p>Sua beleza radiante</p>
+  </div>
+  <div class="slide historiaSlide">
+    <img src="w4.jpeg">
+    <p>Tentando imitar figurinha kkk</p>
+  </div>
+  <div class="slide historiaSlide">
+    <img src="w5.jpeg">
+    <p>Sem reação segundos antes</p>
+  </div>
+  <div class="slide historiaSlide">
+    <img src="w6.jpeg">
+    <p>Eu escolheria você mil vezes</p>
+  </div>
 </div>
 
 <!-- PAGINA CROCHE -->
-
 <div class="pagina" id="croche">
 
-<!-- FIOS COSTURANDO -->
+  <svg id="fio1">
+    <path class="fio fio1" d="M0 200 Q200 50 400 200 T800 200 T1200 300 T1600 200"/>
+  </svg>
+  <svg id="fio2">
+    <path class="fio fio2" d="M1600 400 Q1400 250 1200 400 T800 400 T400 500 T0 400"/>
+  </svg>
 
-<svg id="fio1">
-<path class="fio fio1" d="
-M0 200
-Q200 50 400 200
-T800 200
-T1200 300
-T1600 200
-"/>
-</svg>
+  MEU CUSCUZ, FIZ PARA VOCÊ PODER TER UMA ADMIRAÇÃO 
+  DE SUAS QUALIDADES QUANDO NÃO ESTIVER NO SEU MELHOR ASTRAL.
 
-<svg id="fio2">
-<path class="fio fio2" d="
-M1600 400
-Q1400 250 1200 400
-T800 400
-T400 500
-T0 400
-"/>
-</svg>
-  
-MEU CUSCUZ, FIZ PARA VOCÊ PODER TER UMA ADMIRAÇÃO 
-DE SUAS QUALIDADES QUANDO NÃO ESTIVER NO SEU MELHOR ASTRAL.
-  
-<h1>O Encanto do Crochê🧶🪡</h1>
-<div class="texto">
+  <h1>O Encanto do Crochê🧶🪡</h1>
+  <div class="texto">
+    Falam que o artesanato é a linguagem do coração, agora, vendo o que você cria, eu acredito nisso. Ver você concentrada, transformando um simples novelo de lã 
+    em algo tão lindo e cheio de vida, me faz admirar você ainda mais. Com esses pontos perfeitos que carregam a sua essência. Que esse dom continue florescendo, 
+    porque sua criatividade não tem limites. Continue tecendo seus sonhos, ponto por ponto, progredindo de maneira constante, saiba que eu estarei sempre aqui na primeira fila, 
+    aplaudindo, pulando e gritando "bota cuscuz" a cada criação. Aqui é um pequeno retrato visual para eu e você poder admirar com mais facilidade.
+  </div>
 
-Falam que o artesanato é a linguagem do coração, agora, vendo o que você cria, eu acredito nisso. Ver você concentrada, transformando um simples novelo de lã 
-em algo tão lindo e cheio de vida, me faz admirar você ainda mais. Com esses pontos perfeitos que carregam a sua essência. Que esse dom continue florescendo, 
-porque sua criatividade não tem limites. Continue tecendo seus sonhos, ponto por ponto, progredindo de maneira constante, saiba que eu estarei sempre aqui na primeira fila, 
-aplaudindo, pulando e gritando "bota cuscuz" a cada criação. Aqui é um pequeno retrato visual para eu e você poder admirar com mais facilidade.
-</div>
-
-<div class="slide crocheSlide">
-<img src="c1.jpeg">
-<p>Todo grande trabalho começa com um simples fio e dedicação.</p>
-</div>
-
-<div class="slide crocheSlide">
-<video autoplay muted loop>
-<source src="v1.mp4">
-</video>
-<p> Aqui não tenho palvras para descrever que estas belas mãos  estão trabalhando no silêncio, para criação de algo cheio de significado.</p>
-</div>
-
-<div class="slide crocheSlide">
-<img src="c2.jpeg">
-<p>Entre os simples fios e o tempo nasce algo único.</p>
-</div>
-
-<div class="slide crocheSlide">
-<video autoplay muted loop>
-<source src="v2.mp4" type="video/mp4">
-</video>
-<p>O tempo desacelera quando a arte encontra o coração de quem ama faze-la.</p>
-</div>
-
-<div class="slide crocheSlide">
-<img src="c3.jpeg">
-<p>Em cada ponto, um detalhe de elegância; em cada pétala, um carinho que nunca murcha.</p>
-</div>
-
-<div class="slide crocheSlide">
-<video autoplay muted loop>
-<source src="v3.mp4" type="video/mp4">
-</video>
-<p>O crochê ensina que as coisas mais bonitas levam tempo e dedicação.</p>
-</div>
-
-<div class="slide crocheSlide">
-<img src="c4.jpeg">
-<p>Nenhum mestre começou pelo topo. Esse buquê é a prova de que você se desafiou, e para mim, ele é uma obra de arte, porque foi feito por você.</p>
-</div>
-
-<div class="slide crocheSlide">
-<video autoplay muted loop>
-<source src="v4.mp4" type="video/mp4">
-</video>
-<p>Onde o mundo vê uma roupa, eu vejo a Paciência de mestre e mãos de artista. Você superou tudo!</p>
-</div>
-
-<div class="slide crocheSlide">
-<img src="c5.jpeg">
-<p>Cada ponto guarda um pouco de carinho e história.</p>
-</div>
-
-<div class="slide crocheSlide">
-<video autoplay muted loop>
-<source src="v5.mp4" type="video/mp4">
-</video>
-<p>Iaí vem ela em mais uma grande bela arte, assinando com perfeição o que só o coração dela sabe criar.</p>
-</div>
-
-<div class="slide crocheSlide">
-<img src="c6.jpeg">
-<p>O feito à mão tem uma beleza única.</p>
-</div>
-
-<div class="slide crocheSlide">
-<img src="c7.jpeg">
-<p>Cada ponto é um abraço para aquecer quem acabou de chegar.</p>
-</div>
-
-<div class="slide crocheSlide">
-<img src="c8.jpeg">
-<p>Entre fios simples surgem verdadeiras obras.</p>
-</div>
-
-<div class="slide crocheSlide">
-<img src="c9.jpeg">
-<p>A paciência de tecer pétala por pétala é o que separa uma peça comum de uma obra de arte. Você é incrível meu amor!!!</p>
-</div>
-
-  
+  <div class="slide crocheSlide">
+    <img src="c1.jpeg">
+    <p>Todo grande trabalho começa com um simples fio e dedicação.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <video autoplay muted loop><source src="v1.mp4"></video>
+    <p>Aqui não tenho palavras para descrever que estas belas mãos estão trabalhando no silêncio, para criação de algo cheio de significado.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <img src="c2.jpeg">
+    <p>Entre os simples fios e o tempo nasce algo único.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <video autoplay muted loop><source src="v2.mp4" type="video/mp4"></video>
+    <p>O tempo desacelera quando a arte encontra o coração de quem ama fazê-la.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <img src="c3.jpeg">
+    <p>Em cada ponto, um detalhe de elegância; em cada pétala, um carinho que nunca murcha.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <video autoplay muted loop><source src="v3.mp4" type="video/mp4"></video>
+    <p>O crochê ensina que as coisas mais bonitas levam tempo e dedicação.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <img src="c4.jpeg">
+    <p>Nenhum mestre começou pelo topo. Esse buquê é a prova de que você se desafiou, e para mim, ele é uma obra de arte, porque foi feito por você.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <video autoplay muted loop><source src="v4.mp4" type="video/mp4"></video>
+    <p>Onde o mundo vê uma roupa, eu vejo a Paciência de mestre e mãos de artista. Você superou tudo!</p>
+  </div>
+  <div class="slide crocheSlide">
+    <img src="c5.jpeg">
+    <p>Cada ponto guarda um pouco de carinho e história.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <video autoplay muted loop><source src="v5.mp4" type="video/mp4"></video>
+    <p>Iaí vem ela em mais uma grande bela arte, assinando com perfeição o que só o coração dela sabe criar.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <img src="c6.jpeg">
+    <p>O feito à mão tem uma beleza única.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <img src="c7.jpeg">
+    <p>Cada ponto é um abraço para aquecer quem acabou de chegar.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <img src="c8.jpeg">
+    <p>Entre fios simples surgem verdadeiras obras.</p>
+  </div>
+  <div class="slide crocheSlide">
+    <img src="c9.jpeg">
+    <p>A paciência de tecer pétala por pétala é o que separa uma peça comum de uma obra de arte. Você é incrível meu amor!!!</p>
+  </div>
 </div>
 
 <!-- PAGINA SONHO -->
-
 <div class="pagina" id="sonho">
-
-<h1>Vamos Sonhar ✨</h1>
-
-<p>Quando o topo for o seu lugar, eu vou sorrir sem surpresa e gritar com certeza. 
-Eu conheço a força das suas mãos e a grandeza do seu coração. Para mim, você já é mais que um sucesso, o mundo só está terminando de te notar.</p>
-
-<h1>Aqui estou aberto para o que colocar, tempo de 1 mes</h1>
+  <h1>Vamos Sonhar ✨</h1>
+  <p>Quando o topo for o seu lugar, eu vou sorrir sem surpresa e gritar com certeza. 
+  Eu conheço a força das suas mãos e a grandeza do seu coração. Para mim, você já é mais que um sucesso, o mundo só está terminando de te notar.</p>
+  <h1>Aqui estou aberto para o que colocar, tempo de 1 mes</h1>
 </div>
 
-<!-- MUSICAS -->
+<!-- PAGINA RAZÕES PRA TE AMAR -->
+<div class="pagina" id="razoes">
 
-<audio id="musica" loop>
-<source src="musica.mp3">
-</audio>
+  <h1>💕 Razões pra te Amar</h1>
+  <p class="subtitulo">Cada card esconde um motivo especial... toque para descobrir 🌸</p>
+  <p class="instrucao">✨ Clique em cada coração ou use o botão abaixo para revelar tudo</p>
 
-<audio id="musica2" loop>
-<source src="musica2.mp3">
-</audio>
+  <div class="razoes-grid" id="razoes-grid">
 
-<audio id="musica3" loop>
-<source src="musica3.mp3">
-</audio>
-  
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 1</span></div>
+        <div class="card-back"><span class="icone-back">🌟</span>Seu sorriso ilumina qualquer ambiente e aquece meu coração instantaneamente.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 2</span></div>
+        <div class="card-back"><span class="icone-back">💪</span>Sua força silenciosa me inspira todos os dias a ser uma versão melhor de mim.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 3</span></div>
+        <div class="card-back"><span class="icone-back">🎨</span>Você transforma o simples em arte — e isso me encanta profundamente.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 4</span></div>
+        <div class="card-back"><span class="icone-back">🧠</span>Sua inteligência e sabedoria guiam nossos passos com leveza e segurança.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 5</span></div>
+        <div class="card-back"><span class="icone-back">🤣</span>Você ri de um jeito que faz tudo ao redor parecer mais leve e mais bonito.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 6</span></div>
+        <div class="card-back"><span class="icone-back">🫶</span>Seu cuidado e carinho com os que você ama revelam a grandeza do seu coração.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 7</span></div>
+        <div class="card-back"><span class="icone-back">✨</span>Você é determinada. Quando decide algo, vai até o fim — e isso me admira demais.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 8</span></div>
+        <div class="card-back"><span class="icone-back">🌸</span>Sua beleza não é só física — ela transborda por quem você é por dentro.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 9</span></div>
+        <div class="card-back"><span class="icone-back">🧶</span>Cada coisa que você cria com suas mãos carrega um pedaço da sua alma.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 10</span></div>
+        <div class="card-back"><span class="icone-back">🏠</span>Ao seu lado, qualquer lugar vira lar. Você é o meu lugar seguro no mundo.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 11</span></div>
+        <div class="card-back"><span class="icone-back">🌙</span>Mesmo nos dias difíceis, sua presença é a melhor parte de tudo.</div>
+      </div>
+    </div>
+
+    <div class="card-flip" onclick="virarCard(this)">
+      <div class="card-inner">
+        <div class="card-front">💖<br><span class="numero">Razão 12</span></div>
+        <div class="card-back"><span class="icone-back">♾️</span>Eu te escolheria mil vezes, em qualquer vida, em qualquer universo. Sempre você.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <button id="btn-revelar" onclick="revelarTodos()">💕 Revelar Todas as Razões</button>
+
+  <div id="mensagem-final">
+    🌹 São só 12 razões escritas aqui, mas o que sinto por você é infinito e sem número. 
+    Você é a razão mais bonita que eu já tive pra querer ser um homem melhor todos os dias. 
+    Eu te amo, meu cuscuz. ❤️
+  </div>
+
+</div>
+
+<!-- MÚSICAS -->
+<audio id="musica"  loop><source src="musica.mp3"></audio>
+<audio id="musica2" loop><source src="musica2.mp3"></audio>
+<audio id="musica3" loop><source src="musica3.mp3"></audio>
+<audio id="musica4" loop><source src="musica4.mp3"></audio>
+
 <div class="email">
-<a href="mailto:tioze.jmps@gmail.com">
-contato: tioze.jmps@gmail.com
-</a>
+  <a href="mailto:tioze.jmps@gmail.com">contato: tioze.jmps@gmail.com</a>
 </div>
-  
+
 <script>
 
+/* ===== CONTADOR ===== */
 const dataInicio = new Date("2026-02-09");
-/* CONTADOR */
 
 function atualizarContador(){
-
-const agora = new Date();
-const diff = agora - dataInicio;
-
-const dias = Math.floor(diff/(1000*60*60*24));
-const horas = Math.floor((diff/(1000*60*60))%24);
-const minutos = Math.floor((diff/(1000*60))%60);
-const segundos = Math.floor((diff/1000)%60);
-
-document.getElementById("tempo").innerHTML =
-dias+" dias "+horas+"h "+minutos+"m "+segundos+"s";
+  const agora = new Date();
+  const diff  = agora - dataInicio;
+  const dias     = Math.floor(diff/(1000*60*60*24));
+  const horas    = Math.floor((diff/(1000*60*60))%24);
+  const minutos  = Math.floor((diff/(1000*60))%60);
+  const segundos = Math.floor((diff/1000)%60);
+  document.getElementById("tempo").innerHTML =
+    dias+" dias "+horas+"h "+minutos+"m "+segundos+"s";
 }
 setInterval(atualizarContador,1000);
 
+/* ===== TÍTULO MÊS ===== */
 function atualizarTitulo(){
-const agora = new Date();
-let meses =
-(agora.getFullYear()-dataInicio.getFullYear())*12+
-(agora.getMonth()-dataInicio.getMonth());
-if(agora.getDate()<9){
-meses--;
+  const agora = new Date();
+  let meses =
+    (agora.getFullYear()-dataInicio.getFullYear())*12+
+    (agora.getMonth()-dataInicio.getMonth());
+  if(agora.getDate()<9) meses--;
+  if(meses<0) meses=0;
+  let frase="";
+  if(meses==12)     frase="Hoje celebramos 1 ano de amor ❤️";
+  else if(meses==0) frase="Rumo ao Nosso Primeiro Mês Amor ❤️";
+  else if(meses==1) frase="Feliz Nosso 1 Mês Amor ❤️";
+  else              frase="Feliz Nosso "+meses+" Meses Amor ❤️";
+  document.getElementById("titulo").innerText=frase;
 }
-if(meses<0){
-meses=0;
-}
-let frase="";
-if(meses==12){
-frase="Hoje celebramos 1 ano de amor ❤️";
-}
-else if(meses==0){
-frase="Rumo ao Nosso Primeiro Mês Amor ❤️";
-}
-else if(meses==1){
-frase="Feliz Nosso 1 Mês Amor ❤️";
-}
-else{
-frase="Feliz Nosso "+meses+" Meses Amor ❤️";
-}
-document.getElementById("titulo").innerText=frase;
-}
-
 atualizarTitulo();
 setInterval(atualizarTitulo,3600000);
-/* ABRIR SITE */
 
+/* ===== ABRIR SITE ===== */
 function abrirSite(){
-
-document.getElementById("carta").style.display="none";
-document.getElementById("menu").style.display="block";
-
+  document.getElementById("carta").style.display="none";
+  document.getElementById("menu").style.display="block";
 }
 
-/* ABRIR PAGINA */
-
+/* ===== ABRIR PÁGINA ===== */
 function abrirPagina(id){
+  let paginas=document.getElementsByClassName("pagina");
+  for(let i=0;i<paginas.length;i++) paginas[i].style.display="none";
+  document.getElementById("menu").style.display="none";
 
-let paginas=document.getElementsByClassName("pagina");
+  let m1=document.getElementById("musica");
+  let m2=document.getElementById("musica2");
+  let m3=document.getElementById("musica3");
+  let m4=document.getElementById("musica4");
 
-for(let i=0;i<paginas.length;i++){
-paginas[i].style.display="none";
+  [m1,m2,m3,m4].forEach(m=>{ m.pause(); m.currentTime=0; });
+
+  document.getElementById(id).style.display="block";
+
+  if(id==="historia") m1.play();
+  if(id==="croche")   m2.play();
+  if(id==="sonho")    m3.play();
+  if(id==="razoes")   m4.play();
+
+  /* Resetar cards de razões ao reabrir */
+  if(id==="razoes"){
+    document.querySelectorAll('.card-flip').forEach(c=>c.classList.remove('virado'));
+    totalVirados=0;
+    document.getElementById('btn-revelar').style.display='block';
+    document.getElementById('mensagem-final').style.display='none';
+  }
 }
 
-document.getElementById("menu").style.display="none";
-
-let m1=document.getElementById("musica");
-let m2=document.getElementById("musica2");
-let m3=document.getElementById("musica3");
-
-  
-m1.pause();
-m2.pause();
-m3.pause();
-  
-m1.currentTime=0;
-m2.currentTime=0;
-m3.currentTime=0;
-
-document.getElementById(id).style.display="block";
-
-if(id==="historia") m1.play();
-if(id==="croche") m2.play();
-if(id==="sonho") m3.play();
-
-}
-
-/* SLIDES HISTORIA */
-
+/* ===== SLIDES HISTÓRIA ===== */
 let slideHistoria=0;
-
 function slidesHistoria(){
-
-let slides=document.getElementsByClassName("historiaSlide");
-
-for(let i=0;i<slides.length;i++){
-slides[i].style.display="none";
+  let slides=document.getElementsByClassName("historiaSlide");
+  for(let i=0;i<slides.length;i++) slides[i].style.display="none";
+  slideHistoria++;
+  if(slideHistoria>slides.length) slideHistoria=1;
+  slides[slideHistoria-1].style.display="block";
+  setTimeout(slidesHistoria,8000);
 }
-
-slideHistoria++;
-
-if(slideHistoria>slides.length){
-slideHistoria=1;
-}
-
-slides[slideHistoria-1].style.display="block";
-
-setTimeout(slidesHistoria,8000);
-
-}
-
 slidesHistoria();
 
-/* SLIDES CROCHE */
-
+/* ===== SLIDES CROCHÊ ===== */
 let slideCroche=0;
-
 function slidesCroche(){
-
-let slides=document.getElementsByClassName("crocheSlide");
-
-for(let i=0;i<slides.length;i++){
-slides[i].style.display="none";
+  let slides=document.getElementsByClassName("crocheSlide");
+  for(let i=0;i<slides.length;i++) slides[i].style.display="none";
+  slideCroche++;
+  if(slideCroche>slides.length) slideCroche=1;
+  slides[slideCroche-1].style.display="block";
+  setTimeout(slidesCroche,8000);
 }
-
-slideCroche++;
-
-if(slideCroche>slides.length){
-slideCroche=1;
-}
-
-slides[slideCroche-1].style.display="block";
-
-setTimeout(slidesCroche,8000);
-
-}
-
 slidesCroche();
 
-/* CORAÇÕES PAGINA 1 */
-
+/* ===== CORAÇÕES ===== */
 function criarCoracao(){
-
-if(document.getElementById("historia").style.display !== "block") return;
-
-const heart=document.createElement("div");
-
-heart.classList.add("heart");
-
-heart.innerHTML="❤️";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.animationDuration=(Math.random()*3+2)+"s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{heart.remove();},5000)
-
+  if(document.getElementById("historia").style.display !== "block") return;
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(Math.random()*3+2)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},5000);
 }
-
 setInterval(criarCoracao,300);
 
-/* ESTRELAS */
-
+/* ===== ESTRELAS ===== */
 function criarEstrelas(){
-
-for(let i=0;i<80;i++){
-
-let star=document.createElement("div");
-
-star.classList.add("star");
-
-star.innerHTML="✦";
-
-star.style.left=Math.random()*100+"vw";
-
-star.style.top=Math.random()*100+"vh";
-
-star.style.animationDuration=(Math.random()*3+1)+"s";
-
-document.body.appendChild(star);
-
+  for(let i=0;i<80;i++){
+    let star=document.createElement("div");
+    star.classList.add("star");
+    star.innerHTML="✦";
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
+    star.style.animationDuration=(Math.random()*3+1)+"s";
+    document.body.appendChild(star);
+  }
 }
-
-}
-
 criarEstrelas();
 
-/* BRILHOS PAGINA CROCHE */
-
+/* ===== BRILHOS CROCHÊ ===== */
 function criarBrilhos(){
+  if(document.getElementById("croche").style.display !== "block") return;
+  let brilho=document.createElement("div");
+  brilho.className="brilho";
+  brilho.style.left=Math.random()*100+"vw";
+  brilho.style.animationDuration=(Math.random()*10+5)+"s";
+  document.body.appendChild(brilho);
+  setTimeout(()=>{brilho.remove();},15000);
+}
+setInterval(criarBrilhos,300);
 
-if(document.getElementById("croche").style.display !== "block") return;
+/* ===== PÉTALAS (RAZÕES) ===== */
+function criarPetala(){
+  if(document.getElementById("razoes").style.display !== "block") return;
+  let p=document.createElement("div");
+  p.className="petala";
+  p.innerHTML=['🌸','🌹','💗','🌺','💮'][Math.floor(Math.random()*5)];
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(Math.random()*6+6)+"s";
+  p.style.fontSize=(Math.random()*10+12)+"px";
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),12000);
+}
+setInterval(criarPetala,600);
 
-let brilho=document.createElement("div");
+/* ===== CARDS RAZÕES ===== */
+let totalVirados=0;
+const totalCards=document.querySelectorAll('.card-flip').length;
 
-brilho.className="brilho";
-
-brilho.style.left=Math.random()*100+"vw";
-
-brilho.style.animationDuration=(Math.random()*10+5)+"s";
-
-document.body.appendChild(brilho);
-
-setTimeout(()=>{brilho.remove();},15000)
-
+function virarCard(el){
+  if(!el.classList.contains('virado')){
+    el.classList.add('virado');
+    totalVirados++;
+    if(totalVirados===totalCards) mostrarMensagem();
+  }
 }
 
-setInterval(criarBrilhos,300);
+function revelarTodos(){
+  document.querySelectorAll('.card-flip').forEach(c=>c.classList.add('virado'));
+  totalVirados=totalCards;
+  mostrarMensagem();
+}
+
+function mostrarMensagem(){
+  document.getElementById('mensagem-final').style.display='block';
+  document.getElementById('btn-revelar').style.display='none';
+}
 
 </script>
 
