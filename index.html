@@ -770,6 +770,7 @@ Eu te amo, meu cuscuz. ❤️
 </div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function(){
 
 /* ===== CONTADOR ===== */
 const dataInicio = new Date("2026-02-09");
@@ -784,6 +785,7 @@ function atualizarContador(){
   document.getElementById("tempo").innerHTML =
     dias+" dias "+horas+"h "+minutos+"m "+segundos+"s";
 }
+atualizarContador();
 setInterval(atualizarContador,1000);
 
 /* ===== TÍTULO MÊS ===== */
@@ -808,8 +810,10 @@ setInterval(atualizarTitulo,3600000);
 function abrirSite(){
   document.getElementById("carta").style.display="none";
   document.getElementById("menu").style.display="block";
-}
 
+  atualizarContador();
+  atualizarTitulo();
+}
 /* ===== ABRIR PÁGINA ===== */
 function abrirPagina(id){
   let paginas = document.getElementsByClassName("pagina");
@@ -849,11 +853,13 @@ function abrirPagina(id){
 
   /* HISTÓRIA: NÃO MOSTRAR NENHUM MÊS */
   if(id === "historia"){
-    let meses = document.getElementsByClassName("mes-historia");
-    for(let i=0;i<meses.length;i++){
-      meses[i].style.display = "none";
-    }
+  let meses = document.getElementsByClassName("mes-historia");
+  for(let i=0;i<meses.length;i++){
+    meses[i].style.display = "none";
   }
+
+  document.getElementById("mes1").style.display = "block"; // MOSTRA O PRIMEIRO
+}
 }
 /* ===== SUBMENU MESES ===== */
 
@@ -1023,7 +1029,7 @@ function mostrarMensagem(){
   document.getElementById('mensagem-final').style.display = 'block';
   document.getElementById('btn-revelar').style.display = 'none';
 }
-
+});
 </script>
 
 </body>
