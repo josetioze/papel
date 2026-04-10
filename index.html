@@ -808,34 +808,31 @@ function abrirSite(){
 
 /* ===== ABRIR PÁGINA ===== */
 function abrirPagina(id){
-
   let paginas = document.getElementsByClassName("pagina");
-  for(let i=0; i<paginas.length; i++){
-    paginas[i].style.display = "none";
-  }
+  for(let i=0; i<paginas.length; i++) paginas[i].style.display = "none";
 
   document.getElementById("menu").style.display = "none";
 
-  // Músicas
+  // músicas
   let m1 = document.getElementById("musica");
   let m2 = document.getElementById("musica2");
   let m3 = document.getElementById("musica3");
   let m4 = document.getElementById("musica4");
-  [m1, m2, m3, m4].forEach(m => { 
-    if(m){ m.pause(); m.currentTime = 0; } 
+  let m5 = document.getElementById("musica01");
+
+  [m1, m2, m3, m4, m5].forEach(m => {
+    if(m){ m.pause(); m.currentTime = 0; }
   });
-  // Mostrar página
+
   document.getElementById(id).style.display = "block";
-  // Tocar música da página
+
+  // tocar música base
   if(id === "historia") m1.play().catch(()=>{});
   if(id === "croche")   m2.play().catch(()=>{});
   if(id === "sonho")    m3.play().catch(()=>{});
   if(id === "razoes")   m4.play().catch(()=>{});
-  // ✅ HISTORIA (fora do razoes)
-  if(id === "historia"){
-    abrirMes('mes1');
-  }
-  // ✅ RESET DOS CARDS (somente razoes)
+
+  /* RESET RAZÕES */
   if(id === "razoes"){
     document.querySelectorAll('.card-flip').forEach(c => {
       c.classList.remove('virado');
@@ -845,27 +842,38 @@ function abrirPagina(id){
     document.getElementById('btn-revelar').style.display = 'block';
     document.getElementById('mensagem-final').style.display = 'none';
   }
-}
 
+  /* HISTÓRIA: NÃO MOSTRAR NENHUM MÊS */
+  if(id === "historia"){
+    let meses = document.getElementsByClassName("mes-historia");
+    for(let i=0;i<meses.length;i++){
+      meses[i].style.display = "none";
+    }
+  }
+}
 /* ===== SUBMENU MESES ===== */
 
 function abrirMes(id){
   let meses = document.getElementsByClassName("mes-historia");
+
   for(let i=0;i<meses.length;i++){
     meses[i].style.display="none";
   }
 
   document.getElementById(id).style.display="block";
 
-  // 🎵 CONTROLE DE MÚSICA POR MÊS
-  let m1 = document.getElementById("musica");   // história normal
-  let m5 = document.getElementById("musica01"); // nova música
+  // música
+  let m1 = document.getElementById("musica");
+  let m5 = document.getElementById("musica01");
+
   [m1, m5].forEach(m => {
     if(m){ m.pause(); m.currentTime = 0; }
   });
+
   if(id === "mes1"){
     m1.play().catch(()=>{});
   }
+
   if(id === "mesAtual"){
     m5.play().catch(()=>{});
   }
