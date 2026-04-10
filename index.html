@@ -397,12 +397,25 @@ body{
   cursor:pointer;
 }
 
-/* MÊS ATUAL AMARELO */
+/* MÊS ATUAL AMARELO — cobre a seção toda */
 #mesAtual{
-  background:#FFD54F; /* amarelo */
-  color:black;
-  padding:20px;
-  border-radius:20px;
+  background:linear-gradient(160deg,#FFE082,#FFD54F,#FFCA28);
+  color:#3e2000;
+  padding:40px 30px;
+  border-radius:28px;
+  margin:20px -10px;
+  box-shadow:0 12px 40px rgba(255,193,7,0.45);
+  width:100%;
+  box-sizing:border-box;
+}
+#mesAtual h2{
+  color:#5d3a00;
+  font-size:1.8em;
+  margin-bottom:20px;
+}
+#mesAtual p{
+  color:#4a2800;
+  font-weight:600;
 }
 </style>
 </head>
@@ -440,12 +453,22 @@ body{
 </div>
 
 <div id="conteudoHistoria" style="display:none;">
-  <div class="texto">
-    <br><br>
+
+  <!-- TEXTO DO PRIMEIRO MÊS -->
+  <div id="textoMes1" class="texto" style="display:none;">
+    <br>
     Como já te falei, "o tempo é o nosso bem mais precioso". Olhar para 2026 e saber que iniciei o ciclo de uma vida inteira com você me traz uma felicidade que eu não sabia que existia. Você não é apenas a minha melhor escolha, você é o porto seguro onde meu coração decidiu pousar.
     Olhar para nós e para o que estamos construindo me emociona profundamente. Mas o que me tira o fôlego não é apenas o "nós", é a mulher monumental e extraordinária que você se revela a cada dia. Sua força não é barulhenta, ela é constante, a sua sabedoria guia nossos passos e o seu jeito de enfrentar as adversidades com esse seu "jeitinho" único me faz te admirar como nunca admirei ninguém.
-    Minha Mulher-Maravilha, ter você ao meu lado não é sorte, é o maior privilégio da minha existência. 
-    Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos que ainda vamos tirar do papel. Obrigado por ser você e, unicamente, você!❤️
+    Minha Mulher-Maravilha, ter você ao meu lado não é sorte, é o maior privilégio da minha existência.
+    Eu amo você além das palavras, em cada detalhe do agora e em todos os sonhos que ainda vamos tirar do papel. Obrigado por ser você e, unicamente, você! ❤️
+  </div>
+
+  <!-- TEXTO DO MÊS ATUAL -->
+  <div id="textoMesAtual" class="texto" style="display:none; color:#3e2000; background:linear-gradient(160deg,#FFF8E1,#FFF3CD); border-radius:20px; padding:25px; margin:15px 0;">
+    <br>
+    Cada mês ao seu lado é um presente renovado. O tempo passou, mas o que cresceu entre a gente não tem medida — cresceu em cumplicidade, em risos, em olhares que dispensam palavras. 🌟<br><br>
+    Este mês traz consigo a prova de que o que construímos não é frágil. É sólido, bonito e feito de escolhas diárias. Escolha de estar. De ouvir. De cuidar. E eu escolho isso contigo todos os dias, sem hesitar. ☀️<br><br>
+    Você continua me surpreendendo — na sua força, na sua leveza, na forma como você transforma o comum em extraordinário só com a sua presença. Meu cuscuz, que esse mês seja mais um capítulo lindo da nossa história. Eu te amo cada vez mais. ❤️✨
   </div>
 
   <h2>Nossos Momentos 📸</h2>
@@ -840,8 +863,7 @@ function abrirPagina(id){
 
   document.getElementById(id).style.display = "block";
 
-  // tocar música base
-  if(id === "historia") m1.play().catch(()=>{});
+  // tocar música base (história só toca ao escolher o mês)
   if(id === "croche")   m2.play().catch(()=>{});
   if(id === "sonho")    m3.play().catch(()=>{});
   if(id === "razoes")   m4.play().catch(()=>{});
@@ -877,6 +899,10 @@ function abrirMes(id){
   }
   document.getElementById("conteudoHistoria").style.display = "block";
   document.getElementById(id).style.display="block";
+
+  // Mostrar texto correto
+  document.getElementById("textoMes1").style.display    = (id === "mes1")      ? "block" : "none";
+  document.getElementById("textoMesAtual").style.display = (id === "mesAtual") ? "block" : "none";
 
   // Reinicia os slides do mês correto
   if(id === "mes1"){
@@ -1062,4 +1088,5 @@ function mostrarMensagem(){
 
 </body>
 </html>
+
 
