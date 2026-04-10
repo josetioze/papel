@@ -770,6 +770,15 @@ Eu te amo, meu cuscuz. ❤️
 </div>
 
 <script>
+    /* ===== ABRIR SITE ===== */
+function abrirSite(){
+  document.getElementById("carta").style.display="none";
+  document.getElementById("menu").style.display="block";
+
+  atualizarContador();
+  atualizarTitulo();
+}
+
 document.addEventListener("DOMContentLoaded", function(){
 
 /* ===== CONTADOR ===== */
@@ -807,14 +816,7 @@ atualizarTitulo();
 setInterval(atualizarTitulo,3600000);
 
 /* ===== ABRIR SITE ===== */
-function abrirSite(){
-  document.getElementById("carta").style.display="none";
-  document.getElementById("menu").style.display="block";
 
-  atualizarContador();
-  atualizarTitulo();
-}
-window.abrirSite = abrirSite;
 /* ===== ABRIR PÁGINA ===== */
 function abrirPagina(id){
   let paginas = document.getElementsByClassName("pagina");
@@ -1031,9 +1033,7 @@ function mostrarMensagem(){
   document.getElementById('mensagem-final').style.display = 'block';
   document.getElementById('btn-revelar').style.display = 'none';
 }
-window.abrirSite = abrirSite;
-window.abrirPagina = abrirPagina;
-window.abrirMes = abrirMes;    
+
 });
 </script>
 
