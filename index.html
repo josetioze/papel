@@ -484,17 +484,67 @@ body{
 
   <div class="slide historiaSlideAtual">
     <img src="t1.jpeg">
-    <p>Mais um momento especial juntos ❤️</p>
+    <p>Mais um capítulo lindo da nossa história 💖</p>
   </div>
 
   <div class="slide historiaSlideAtual">
     <img src="t2.jpeg">
-    <p>Cada mês com você é único ✨</p>
+    <p>Seu sorriso continua sendo meu lugar favorito 😊</p>
   </div>
 
   <div class="slide historiaSlideAtual">
     <img src="t3.jpeg">
-    <p>Nosso amor crescendo 💛</p>
+    <p>Cada momento contigo vira memória eterna ✨</p>
+  </div>
+
+  <div class="slide historiaSlideAtual">
+    <img src="t4.jpeg">
+    <p>Entre risos e olhares, eu escolho você sempre 😍</p>
+  </div>
+
+  <div class="slide historiaSlideAtual">
+    <img src="t5.jpeg">
+    <p>Nosso amor cresce nos detalhes mais simples 🌱</p>
+  </div>
+
+  <div class="slide historiaSlideAtual">
+    <img src="t6.jpeg">
+    <p>Você transforma qualquer dia comum em especial 🌸</p>
+  </div>
+
+  <div class="slide historiaSlideAtual">
+    <img src="t7.jpeg">
+    <p>Ao seu lado, tudo faz mais sentido 💑</p>
+  </div>
+
+  <div class="slide historiaSlideAtual">
+    <img src="t8.jpeg">
+    <p>Te amar é a melhor parte da minha rotina 💞</p>
+  </div>
+
+  <div class="slide historiaSlideAtual">
+    <img src="t9.jpeg">
+    <p>Seu olhar tem um brilho que me prende 🌟</p>
+  </div>
+
+  <div class="slide historiaSlideAtual">
+    <img src="t10.jpeg">
+    <p>Mais um momento que eu guardaria mil vezes 💌</p>
+  </div>
+
+  <div class="slide historiaSlideAtual">
+    <img src="t11.jpeg">
+    <p>Com você, o tempo voa e o amor fica ⏳❤️</p>
+  </div>
+
+  <div class="slide historiaSlideAtual">
+    <img src="t12.jpeg">
+    <p>Somos feitos de momentos assim… e eu amo cada um 💫</p>
+  </div>
+
+  <div class="slide historiaSlideAtual">
+    <img src="t13.jpeg">
+    <p>Se for com você, eu quero viver tudo isso de novo ♾️</p>
   </div>
 
 </div>
@@ -709,7 +759,8 @@ Eu te amo, meu cuscuz. ❤️
 <audio id="musica2" loop><source src="musica2.mp3"></audio>
 <audio id="musica3" loop><source src="musica3.mp3"></audio>
 <audio id="musica4" loop><source src="musica4.mp3"></audio>
-
+<audio id="musica01" loop><source src="musica01.mp3"></audio>
+    
 <div class="email">
   <a href="mailto:tioze.jmps@gmail.com">contato: tioze.jmps@gmail.com</a>
 </div>
@@ -757,51 +808,68 @@ function abrirSite(){
 
 /* ===== ABRIR PÁGINA ===== */
 function abrirPagina(id){
-  let paginas=document.getElementsByClassName("pagina");
-  for(let i=0;i<paginas.length;i++) paginas[i].style.display="none";
-  document.getElementById("menu").style.display="none";
+  let paginas = document.getElementsByClassName("pagina");
+  for(let i=0; i<paginas.length; i++) paginas[i].style.display = "none";
+  document.getElementById("menu").style.display = "none";
 
-  let m1=document.getElementById("musica");
-  let m2=document.getElementById("musica2");
-  let m3=document.getElementById("musica3");
-  let m4=document.getElementById("musica4");
+  // Pegar referências das músicas
+  let m1 = document.getElementById("musica");
+  let m2 = document.getElementById("musica2");
+  let m3 = document.getElementById("musica3");
+  let m4 = document.getElementById("musica4");
 
-  [m1,m2,m3,m4].forEach(m=>{ m.pause(); m.currentTime=0; });
-
-  document.getElementById(id).style.display="block";
-
-  if(id==="historia") m1.play();
-  if(id==="croche")   m2.play();
-  if(id==="sonho")    m3.play();
-  if(id==="razoes")   m4.play();
-    <audio id="musica01" loop>
-  <source src="musica01.mp3">
-</audio>
-
-  /* Resetar cards de razões ao reabrir */
- if(id==="razoes"){
-  document.querySelectorAll('.card-flip').forEach(c=>{
-    c.classList.remove('virado');
-    delete c.dataset.visto; // limpa histórico
+  // Parar todas
+  [m1, m2, m3, m4].forEach(m => { 
+    if(m) { m.pause(); m.currentTime = 0; } 
   });
-  totalVirados = 0;
-  document.getElementById('btn-revelar').style.display = 'block';
-  document.getElementById('mensagem-final').style.display = 'none';
+
+  // Mostrar página
+  document.getElementById(id).style.display = "block";
+
+  // Tocar música
+  if(id === "historia") m1.play().catch(()=>{});
+  if(id === "croche")   m2.play().catch(()=>{});
+  if(id === "sonho")    m3.play().catch(()=>{});
+  if(id === "razoes")   m4.play().catch(()=>{});
+
+  /* ✅ RESET CORRETO (AGORA DENTRO DA FUNÇÃO) */
+  if(id === "razoes"){
+    document.querySelectorAll('.card-flip').forEach(c => {
+      c.classList.remove('virado');
+      delete c.dataset.visto;
+    });
+    totalVirados = 0;
+    document.getElementById('btn-revelar').style.display = 'block';
+    document.getElementById('mensagem-final').style.display = 'none';
+   if(id === "historia"){
+  abrirMes('mes1'); // começa mostrando o primeiro mês
+} 
+  }
 }
-}
+   
 
 /* ===== SUBMENU MESES ===== */
 
 function abrirMes(id){
-
-  let meses=document.getElementsByClassName("mes-historia");
-
+  let meses = document.getElementsByClassName("mes-historia");
   for(let i=0;i<meses.length;i++){
     meses[i].style.display="none";
   }
 
   document.getElementById(id).style.display="block";
 
+  // 🎵 CONTROLE DE MÚSICA POR MÊS
+  let m1 = document.getElementById("musica");   // história normal
+  let m5 = document.getElementById("musica01"); // nova música
+  [m1, m5].forEach(m => {
+    if(m){ m.pause(); m.currentTime = 0; }
+  });
+  if(id === "mes1"){
+    m1.play().catch(()=>{});
+  }
+  if(id === "mesAtual"){
+    m5.play().catch(()=>{});
+  }
 }
 /* ===== SLIDES HISTÓRIA ===== */
 let slideHistoria=0;
