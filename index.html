@@ -857,9 +857,6 @@ function abrirPagina(id){
   for(let i=0;i<meses.length;i++){
     meses[i].style.display = "none";
   }
-
-  document.getElementById("mes1").style.display = "block"; // MOSTRA O PRIMEIRO
-}
 }
 /* ===== SUBMENU MESES ===== */
 
@@ -887,6 +884,9 @@ function abrirMes(id){
   if(id === "mesAtual"){
     m5.play().catch(()=>{});
   }
+
+  // 🔥 GARANTE QUE O CONTADOR CONTINUE ATUALIZANDO
+  atualizarContador();
 }
 /* ===== SLIDES HISTÓRIA ===== */
 let slideHistoria=0;
