@@ -858,6 +858,7 @@ function abrirPagina(id){
   for(let i=0;i<meses.length;i++){
     meses[i].style.display = "none";
   }
+  }
 }
 /* ===== SUBMENU MESES ===== */
 
@@ -1030,6 +1031,9 @@ function mostrarMensagem(){
   document.getElementById('mensagem-final').style.display = 'block';
   document.getElementById('btn-revelar').style.display = 'none';
 }
+window.abrirSite = abrirSite;
+window.abrirPagina = abrirPagina;
+window.abrirMes = abrirMes;    
 });
 </script>
 
