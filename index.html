@@ -433,6 +433,12 @@ body{
     <b id="tempo"></b>
   </div>
 
+<!-- SUBMENU HISTORIA — sempre visível ao abrir a história -->
+<div id="submenu-historia">
+  <button onclick="abrirMes('mes1')">📅 Primeiro Mês</button>
+  <button onclick="abrirMes('mesAtual')">⭐ Mês Atual</button>
+</div>
+
 <div id="conteudoHistoria" style="display:none;">
   <div class="texto">
     <br><br>
@@ -443,11 +449,6 @@ body{
   </div>
 
   <h2>Nossos Momentos 📸</h2>
-    <!-- SUBMENU HISTORIA -->
-<div id="submenu-historia">
-  <button onclick="abrirMes('mes1')">📅 Primeiro Mês</button>
-  <button onclick="abrirMes('mesAtual')">⭐ Mês Atual</button>
-</div>
 
   <!-- PRIMEIRO MÊS (ORIGINAL) -->
 <div id="mes1" class="mes-historia">
@@ -871,12 +872,25 @@ function abrirPagina(id){
 
 function abrirMes(id){
   let meses = document.getElementsByClassName("mes-historia");
-
   for(let i=0;i<meses.length;i++){
     meses[i].style.display="none";
   }
-document.getElementById("conteudoHistoria").style.display = "block";
+  document.getElementById("conteudoHistoria").style.display = "block";
   document.getElementById(id).style.display="block";
+
+  // Reinicia os slides do mês correto
+  if(id === "mes1"){
+    slideHistoria = 0;
+    let slides = document.getElementsByClassName("historiaSlide");
+    for(let i=0;i<slides.length;i++) slides[i].style.display="none";
+    if(slides.length>0){ slideHistoria=1; slides[0].style.display="block"; }
+  }
+  if(id === "mesAtual"){
+    slideAtual = 0;
+    let slides = document.getElementsByClassName("historiaSlideAtual");
+    for(let i=0;i<slides.length;i++) slides[i].style.display="none";
+    if(slides.length>0){ slideAtual=1; slides[0].style.display="block"; }
+  }
 
   // música
   let m1 = document.getElementById("musica");
