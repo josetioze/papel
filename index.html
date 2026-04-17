@@ -866,7 +866,7 @@ function abrirPagina(id){
   document.getElementById(id).style.display = "block";
 
   // tocar música base (história só toca ao escolher o mês)
-  if(id === "croche")   m2.play().catch(()=>{});
+  if(id === "croche")   { slideCroche = 0; slidesCroche(); m2.play().catch(()=>{}); }
   if(id === "sonho")    m3.play().catch(()=>{});
   if(id === "razoes")   m4.play().catch(()=>{});
 
@@ -909,15 +909,11 @@ function abrirMes(id){
   // Reinicia os slides do mês correto
   if(id === "mes1"){
     slideHistoria = 0;
-    let slides = document.getElementsByClassName("historiaSlide");
-    for(let i=0;i<slides.length;i++) slides[i].style.display="none";
-    if(slides.length>0){ slideHistoria=1; slides[0].style.display="block"; }
+    slidesHistoria();
   }
   if(id === "mesAtual"){
     slideAtual = 0;
-    let slides = document.getElementsByClassName("historiaSlideAtual");
-    for(let i=0;i<slides.length;i++) slides[i].style.display="none";
-    if(slides.length>0){ slideAtual=1; slides[0].style.display="block"; }
+    slidesAtual();
   }
 
   // música
