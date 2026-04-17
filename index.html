@@ -940,50 +940,49 @@ function abrirMes(id){
   atualizarContador();
 }
 /* ===== SLIDES HISTÓRIA ===== */
-let slideHistoria=0;
-function slidesHistoria(){
-  let slides=document.getElementsByClassName("historiaSlide");
-  for(let i=0;i<slides.length;i++) slides[i].style.display="none";
-  slideHistoria++;
-  if(slideHistoria>slides.length) slideHistoria=1;
-  slides[slideHistoria-1].style.display="block";
-  setTimeout(slidesHistoria,8000);
-}
-slidesHistoria();
-/* ===== SLIDES MÊS ATUAL ===== */
+let slideHistoria = 0;
+let timerHistoria = null;
 
-let slideAtual=0;
+function slidesHistoria(){
+  clearTimeout(timerHistoria);
+  let slides = document.getElementsByClassName("historiaSlide");
+  if(slides.length === 0) return;
+  for(let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+  slideHistoria++;
+  if(slideHistoria > slides.length) slideHistoria = 1;
+  slides[slideHistoria - 1].style.display = "block";
+  timerHistoria = setTimeout(slidesHistoria, 8000);
+}
+
+/* ===== SLIDES MÊS ATUAL ===== */
+let slideAtual = 0;
+let timerAtual = null;
 
 function slidesAtual(){
-
-  let slides=document.getElementsByClassName("historiaSlideAtual");
-
-  for(let i=0;i<slides.length;i++)
-    slides[i].style.display="none";
-
+  clearTimeout(timerAtual);
+  let slides = document.getElementsByClassName("historiaSlideAtual");
+  if(slides.length === 0) return;
+  for(let i = 0; i < slides.length; i++) slides[i].style.display = "none";
   slideAtual++;
-
-  if(slideAtual>slides.length)
-    slideAtual=1;
-
-  if(slides.length>0)
-    slides[slideAtual-1].style.display="block";
-
-  setTimeout(slidesAtual,8000);
+  if(slideAtual > slides.length) slideAtual = 1;
+  slides[slideAtual - 1].style.display = "block";
+  timerAtual = setTimeout(slidesAtual, 8000);
 }
 
-slidesAtual();
 /* ===== SLIDES CROCHÊ ===== */
-let slideCroche=0;
+let slideCroche = 0;
+let timerCroche = null;
+
 function slidesCroche(){
-  let slides=document.getElementsByClassName("crocheSlide");
-  for(let i=0;i<slides.length;i++) slides[i].style.display="none";
+  clearTimeout(timerCroche);
+  let slides = document.getElementsByClassName("crocheSlide");
+  if(slides.length === 0) return;
+  for(let i = 0; i < slides.length; i++) slides[i].style.display = "none";
   slideCroche++;
-  if(slideCroche>slides.length) slideCroche=1;
-  slides[slideCroche-1].style.display="block";
-  setTimeout(slidesCroche,8000);
+  if(slideCroche > slides.length) slideCroche = 1;
+  slides[slideCroche - 1].style.display = "block";
+  timerCroche = setTimeout(slidesCroche, 8000);
 }
-slidesCroche();
 
 /* ===== CORAÇÕES ===== */
 function criarCoracao(){
@@ -1090,5 +1089,4 @@ function mostrarMensagem(){
 
 </body>
 </html>
-
 
