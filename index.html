@@ -417,6 +417,29 @@ body{
   color:#4a2800;
   font-weight:600;
 }
+
+/* ESTOURO */
+    
+.explosao{
+  position:fixed;
+  font-size:25px;
+  pointer-events:none;
+  z-index:999;
+  animation:explodir 1s forwards;
+}
+
+@keyframes explodir{
+  0%{
+    transform:translate(0,0) scale(0);
+    opacity:1;
+  }
+  100%{
+    transform:
+      translate(var(--x), var(--y))
+      scale(2);
+    opacity:0;
+  }
+}
 </style>
 </head>
 
@@ -824,11 +847,49 @@ document.addEventListener("DOMContentLoaded", function(){
 
     /* ===== ABRIR SITE ===== */
 function abrirSite(){
-  document.getElementById("carta").style.display="none";
-  document.getElementById("menu").style.display="block";
 
-  atualizarContador();
-  atualizarTitulo();
+  // botão
+  const btn = document.querySelector("#carta button");
+  const rect = btn.getBoundingClientRect();
+
+  // centro do botão
+  const centroX = rect.left + rect.width / 2;
+  const centroY = rect.top + rect.height / 2;
+
+  // cria explosão
+  for(let i=0;i<40;i++){
+
+    const heart = document.createElement("div");
+    heart.className = "explosao";
+
+    const emojis = ["❤️","💖","✨","💘","💕"];
+    heart.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+
+    heart.style.left = centroX + "px";
+    heart.style.top  = centroY + "px";
+
+    // direção aleatória
+    const x = (Math.random()-0.5)*800 + "px";
+    const y = (Math.random()-0.5)*800 + "px";
+
+    heart.style.setProperty("--x", x);
+    heart.style.setProperty("--y", y);
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+      heart.remove();
+    },1000);
+  }
+
+  // atraso antes de abrir
+  setTimeout(()=>{
+    document.getElementById("carta").style.display="none";
+    document.getElementById("menu").style.display="block";
+
+    atualizarContador();
+    atualizarTitulo();
+  },700);
 }
 /* ===== CONTADOR ===== */
 const dataInicio = new Date("2026-02-09");
