@@ -436,7 +436,30 @@ body{
   color:#4a2800;
   font-weight:600;
 }
+/* CORAÇÃO PULSANDO NA TELA INICIAL */
+.coracao-pulsando{
+  font-size:75px;
+  margin-bottom:10px;
+  animation:pulsar 1.2s infinite;
+}
+@keyframes pulsar{
+  0%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.2);
+  }
+  100%{
+    transform:scale(1);
+  }
+}
 
+#carta p{
+  font-size:1.1em;
+  opacity:0.8;
+  margin-bottom:25px;
+}
+    
 /* ESTOURO */
     
 .explosao{
@@ -467,8 +490,10 @@ body{
 <button class="voltar" onclick="voltarMenu()">⬅ Voltar ao menu</button>
 <!-- CARTA INICIAL -->
 <div id="carta">
-  <h2>💌 Tenho algo para você...</h2>
-  <button onclick="abrirSite()">Abrir ❤️</button>
+  <h1 class="coracao-pulsando">❤️</h1>
+  <h2>Tenho algo guardado só para você...</h2>
+  <p>Um pedacinho do nosso universo, feito com amor e carinho</p>
+  <button onclick="abrirSite()">Abrir a surpresa 💌</button>
 </div>
 
 <!-- MENU -->
