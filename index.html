@@ -459,7 +459,39 @@ body{
   opacity:0.8;
   margin-bottom:25px;
 }
-    
+
+/* LINHA DO TEMPO */
+.timeline{
+  max-width:700px;
+  margin:35px auto;
+  border-left:4px solid #ff4d6d;
+  padding-left:25px;
+  text-align:left;
+}
+
+.timeline div{
+  background:rgba(255,255,255,0.15);
+  padding:18px;
+  border-radius:15px;
+  margin-bottom:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.25);
+  position:relative;
+}
+
+.timeline div::before{
+  content:"❤️";
+  position:absolute;
+  left:-43px;
+  top:18px;
+  background:#ff4d6d;
+  border-radius:50%;
+  padding:6px;
+}
+
+.timeline strong{
+  color:#fff0f3;
+  font-size:1.1em;
+}
 /* ESTOURO */
     
 .explosao{
@@ -513,6 +545,25 @@ body{
     ❤️ Estamos juntos há ❤️ <br>
     <b id="tempo"></b>
   </div>
+    
+<div class="timeline">
+  <div>
+    <strong>09/02/2026</strong><br>
+    O começo de tudo ❤️
+  </div>
+  <div>
+    <strong>Primeiro mês</strong><br>
+    Nossas primeiras memórias juntos 📸
+  </div>
+  <div>
+    <strong>Mês atual</strong><br>
+    Mais um capítulo lindo da nossa história ⭐
+  </div>
+  <div>
+    <strong>Futuro</strong><br>
+    O melhor ainda está por vir ✨
+  </div>
+</div>
 
 <!-- SUBMENU HISTORIA — sempre visível ao abrir a história -->
 <div id="submenu-historia">
