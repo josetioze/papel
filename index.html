@@ -1258,11 +1258,11 @@ function abrirMes(id){
   document.getElementById("textoMes1").style.display = id === "mes1" ? "block" : "none";
   document.getElementById("textoMesAtual").style.display = id === "mesAtual" ? "block" : "none";
 
-  // Pegar as músicas
+  // Pegar músicas primeiro
   let m1 = document.getElementById("musica");
   let m5 = document.getElementById("musica5");
 
-  // Parar as duas músicas da história antes de trocar
+  // Parar músicas da história
   [m1, m5].forEach(m => {
     if(m){
       m.pause();
@@ -1292,7 +1292,6 @@ function abrirMes(id){
 
   atualizarContador();
 }
-
   // 🔥 GARANTE QUE O CONTADOR CONTINUE ATUALIZANDO
   atualizarContador();
 }
