@@ -660,6 +660,7 @@ body{
   border-radius:20px;
   box-shadow:0 10px 30px rgba(0,0,0,0.45);
   border:2px solid rgba(255,255,255,0.25);
+  cursor:pointer;
 } 
     
 </style>
@@ -1093,13 +1094,12 @@ Eu te amo, meu cuscuz. ❤️
     </span>
   </p>
   <div class="video-secreto-caixa">
-  <video class="video-secreto" autoplay muted loop playsinline>
-    <source src="video-secreto.mp4" type="video/mp4">
-    Seu navegador não conseguiu carregar este vídeo.
-  </video>
+ <video class="video-secreto" autoplay muted loop playsinline onclick="alternarVideoSecreto(this)">
+  <source src="video-secreto.mp4" type="video/mp4">
+  Seu navegador não conseguiu carregar este vídeo.
+</video>
 </div>
 
-<h2>Eu te amo infinitamente ❤️</h2>
   <h2>Eu te amo infinitamente ❤️</h2>
 </div>
 </div>
@@ -1575,6 +1575,13 @@ function mudarFraseSecreta(){
 
   parte.innerText = frase;
 }
+function alternarVideoSecreto(video){
+  if(video.paused){
+    video.play();
+  }else{
+    video.pause();
+  }
+}
   window.abrirPagina = abrirPagina;
   window.abrirSite = abrirSite;
   window.abrirMes = abrirMes;
@@ -1584,6 +1591,7 @@ function mudarFraseSecreta(){
   window.abrirSegredo = abrirSegredo;
   window.alternarMusica = alternarMusica;
   window.mudarFraseSecreta = mudarFraseSecreta;
+  window.alternarVideoSecreto = alternarVideoSecreto;
 });
 </script>
 
