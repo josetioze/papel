@@ -1198,13 +1198,28 @@ function abrirPagina(id){
 
   document.getElementById(id).style.display = "block";
   document.querySelector(".voltar").style.display = "flex";
-  document.querySelector(".controle-musica").style.display = "block";
+  document.querySelector(".controle-musica").style.display = "flex";
 
   // tocar música base (história só toca ao escolher o mês)
-  if(id === "croche")   { slideCroche = 0; slidesCroche(); m2.play().catch(()=>{}); }
-  if(id === "sonho")    m3.play().catch(()=>{});
-  if(id === "razoes")   m4.play().catch(()=>{});
+if(id === "croche"){
+  slideCroche = 0;
+  slidesCroche();
+  musicaAtual = m2;
+  musicaAtual.play().catch(()=>{});
+  document.querySelector(".controle-musica").innerText = "🔊";
+}
 
+if(id === "sonho"){
+  musicaAtual = m3;
+  musicaAtual.play().catch(()=>{});
+  document.querySelector(".controle-musica").innerText = "🔊";
+}
+
+if(id === "razoes"){
+  musicaAtual = m4;
+  musicaAtual.play().catch(()=>{});
+  document.querySelector(".controle-musica").innerText = "🔊";
+}
   /* RESET RAZÕES */
   if(id === "razoes"){
     document.querySelectorAll('.card-flip').forEach(c => {
@@ -1242,14 +1257,17 @@ function abrirMes(id){
   document.getElementById("textoMesAtual").style.display = (id === "mesAtual") ? "block" : "none";
 
   // Reinicia os slides do mês correto
-  if(id === "mes1"){
-    slideHistoria = 0;
-    slidesHistoria();
-  }
-  if(id === "mesAtual"){
-    slideAtual = 0;
-    slidesAtual();
-  }
+if(id === "mes1"){
+  musicaAtual = m1;
+  musicaAtual.play().catch(()=>{});
+  document.querySelector(".controle-musica").innerText = "🔊";
+}
+
+if(id === "mesAtual"){
+  musicaAtual = m5;
+  musicaAtual.play().catch(()=>{});
+  document.querySelector(".controle-musica").innerText = "🔊";
+}
 
   // música
   let m1 = document.getElementById("musica");
@@ -1426,8 +1444,9 @@ function voltarMenu(){
     audio.pause();
     audio.currentTime = 0;
   });
-
+  musicaAtual = null;
   document.querySelector(".voltar").style.display = "none";
+  document.querySelector(".controle-musica").style.display = "none";
 }
 
 function abrirSegredo(){
@@ -1455,19 +1474,20 @@ function soltarConfetes(){
     }, 4000);
   }
 }
+let musicaAtual = null;
+
 function alternarMusica(){
-  let audios = document.querySelectorAll("audio");
-  let tocando = null;
-  audios.forEach(audio => {
-    if(!audio.paused){
-      tocando = audio;
-    }
-  });
-  if(tocando){
-    tocando.pause();
-    document.querySelector(".controle-musica").innerText = "🔇 Música";
+  if(!musicaAtual){
+    alert("Escolha uma página ou um mês primeiro para iniciar a música ❤️");
+    return;
+  }
+
+  if(musicaAtual.paused){
+    musicaAtual.play().catch(()=>{});
+    document.querySelector(".controle-musica").innerText = "🔊";
   }else{
-    alert("Escolha uma página novamente para iniciar a música ❤️");
+    musicaAtual.pause();
+    document.querySelector(".controle-musica").innerText = "🔇";
   }
 }
   window.abrirPagina = abrirPagina;
