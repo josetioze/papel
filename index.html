@@ -1066,18 +1066,19 @@ Eu te amo, meu cuscuz. ❤️
   <h1>🔐 Você encontrou nosso cantinho secreto</h1>
 
   <div class="texto segredo-caixa">
-    <p>
-      Esse espaço é só nosso. Um lembrete escondido para quando você precisar lembrar
-      que é amada, admirada e escolhida todos os dias.
-    </p>
+  <p>
+    Esse espaço é só nosso. Um lembrete escondido para quando você precisar lembrar
+    que é amada, admirada e escolhida todos os dias.
+  </p>
 
-    <p>
-      Meu amor, mesmo que o mundo fique pesado, nunca esqueça:
+  <p>
+    Meu amor, mesmo que o mundo fique pesado, nunca esqueça:
+    <span id="parte-mutavel">
       eu vejo sua luz, sua força, seu carinho e sua beleza em detalhes que talvez você nem perceba.
-    </p>
-
-    <h2>Eu te amo infinitamente ❤️</h2>
-  </div>
+    </span>
+  </p>
+  <h2>Eu te amo infinitamente ❤️</h2>
+</div>
 </div>
     
 <!-- MÚSICAS -->
@@ -1224,6 +1225,9 @@ if(id === "razoes"){
   musicaAtual = m4;
   musicaAtual.play().catch(()=>{});
   document.querySelector(".controle-musica").innerText = "🔊";
+}
+if(id === "segredo"){
+  mudarFraseSecreta();
 }
 if(id === "segredo"){
   musicaAtual = m6;
@@ -1506,6 +1510,48 @@ function alternarMusica(){
     document.querySelector(".controle-musica").innerText = "🔇";
   }
 }
+const frasesSecretas = [
+  "Meu amor, só queria te lembrar que você é uma das partes mais bonitas da minha vida, e eu escolheria você de novo em todos os dias.",
+  "Você é meu cuscuz, meu carinho favorito e o pedacinho mais especial do universo que eu tenho a sorte de chamar de nosso.",
+  "Eu amo o jeito que você existe na minha vida, com seus detalhes, sua luz, seu carinho e essa forma única de tornar tudo mais bonito.",
+  "Estar com você é uma escolha que meu coração faz todos os dias, sem dúvida, sem medo e sem precisar pensar duas vezes.",
+  "Você é amada de um jeito calmo, sincero e constante, daqueles que não precisa fazer barulho para ser verdadeiro.",
+  "Meu bem, eu admiro você em detalhes que talvez você nem perceba, mas que para mim fazem de você alguém simplesmente extraordinária.",
+  "Nosso amor é feito de presença, cuidado e pequenas escolhas diárias que, juntas, constroem algo lindo demais.",
+  "Você é meu lugar de paz, meu sorriso bobo no meio do dia e uma das certezas mais bonitas que eu carrego comigo.",
+  "Eu te amo pelo que você é, pelo que estamos construindo e por tudo aquilo que ainda vamos viver lado a lado.",
+  "Seu jeitinho, sua voz, seu carinho e até suas manias fazem parte do conjunto de coisas que eu mais amo em você.",
+  "Meu cuscuz, você não imagina o quanto sua presença deixa meus dias mais leves, mais bonitos e mais cheios de sentido.",
+  "Quando penso em nós, eu sinto orgulho do que estamos vivendo e esperança por tudo que ainda vamos construir juntos.",
+  "Você é minha melhor escolha, não por acaso, mas porque todos os dias eu encontro em você motivos para continuar escolhendo nós.",
+  "Tem algo em você que transforma o simples em especial, e talvez seja por isso que qualquer momento ao seu lado vira lembrança bonita.",
+  "Eu amo sua luz, sua força, sua doçura e esse coração lindo que faz eu querer ser melhor todos os dias.",
+  "Você é única para mim, daquelas pessoas que a vida coloca no caminho e o coração reconhece como lar.",
+  "Meu amor por você não depende de grandes momentos; ele mora nos detalhes, nos olhares, nas risadas e no cuidado de cada dia.",
+  "Eu sou feliz por ter você, por viver nossa história e por poder chamar de nosso esse sentimento tão bonito.",
+  "Se um dia você esquecer o quanto é especial, volta aqui e lembra: para mim, você é encanto, cuidado, beleza e amor.",
+  "Eu gosto de nós. Gosto da nossa história, das nossas conversas, dos nossos planos e até das nossas brincadeiras mais bobas.",
+  "Você tem uma beleza que vai muito além do que os olhos veem; ela aparece no seu jeito, no seu coração e na forma como você cuida.",
+  "Eu te escolheria mil vezes, em qualquer vida, em qualquer universo, porque amar você é uma das coisas mais naturais que já senti.",
+  "Nosso amor é um daqueles presentes que o tempo só deixa mais bonito, mais forte e mais cheio de significado.",
+  "Meu cuscuz, você é o tipo de pessoa que deixa marcas boas no coração, daquelas que a gente guarda com carinho para sempre.",
+  "Eu amo a forma como você me faz sentir em casa, mesmo nos lugares mais simples, só por estar ao meu lado.",
+  "Você é uma mistura linda de força, doçura, inteligência e carinho, e eu admiro cada parte dessa mulher incrível que você é.",
+  "O melhor de viver essa história é saber que ela é nossa, construída com amor, cuidado, risadas e escolhas feitas de coração.",
+  "Eu amo você no detalhe, no cotidiano, no improviso, nos planos e em tudo aquilo que faz você ser exatamente você.",
+  "Você é meu amor, minha parceira, meu carinho diário e uma das razões mais bonitas para eu acreditar no futuro.",
+  "Essa caixinha existe para te lembrar de algo simples e verdadeiro: você é amada, admirada e escolhida todos os dias por mim."
+];
+
+function mudarFraseSecreta(){
+  const parte = document.getElementById("parte-mutavel");
+
+  if(!parte) return;
+
+  const frase = partesSecretas[Math.floor(Math.random() * partesSecretas.length)];
+
+  parte.innerText = frase;
+}
   window.abrirPagina = abrirPagina;
   window.abrirSite = abrirSite;
   window.abrirMes = abrirMes;
@@ -1514,6 +1560,7 @@ function alternarMusica(){
   window.voltarMenu = voltarMenu;
   window.abrirSegredo = abrirSegredo;
   window.alternarMusica = alternarMusica;
+  window.mudarFraseSecreta = mudarFraseSecreta;
 });
 </script>
 
