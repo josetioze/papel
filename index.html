@@ -1246,44 +1246,52 @@ if(id === "razoes"){
 
 function abrirMes(id){
   let meses = document.getElementsByClassName("mes-historia");
-  for(let i=0;i<meses.length;i++){
-    meses[i].style.display="none";
+
+  for(let i = 0; i < meses.length; i++){
+    meses[i].style.display = "none";
   }
+
   document.getElementById("conteudoHistoria").style.display = "block";
-  document.getElementById(id).style.display="block";
+  document.getElementById(id).style.display = "block";
 
   // Mostrar texto correto
-  document.getElementById("textoMes1").style.display    = (id === "mes1")      ? "block" : "none";
-  document.getElementById("textoMesAtual").style.display = (id === "mesAtual") ? "block" : "none";
+  document.getElementById("textoMes1").style.display = id === "mes1" ? "block" : "none";
+  document.getElementById("textoMesAtual").style.display = id === "mesAtual" ? "block" : "none";
 
-  // Reinicia os slides do mês correto
-if(id === "mes1"){
-  musicaAtual = m1;
-  musicaAtual.play().catch(()=>{});
-  document.querySelector(".controle-musica").innerText = "🔊";
-}
-
-if(id === "mesAtual"){
-  musicaAtual = m5;
-  musicaAtual.play().catch(()=>{});
-  document.querySelector(".controle-musica").innerText = "🔊";
-}
-
-  // música
+  // Pegar as músicas
   let m1 = document.getElementById("musica");
   let m5 = document.getElementById("musica5");
 
+  // Parar as duas músicas da história antes de trocar
   [m1, m5].forEach(m => {
-    if(m){ m.pause(); m.currentTime = 0; }
+    if(m){
+      m.pause();
+      m.currentTime = 0;
+    }
   });
 
+  // Primeiro mês
   if(id === "mes1"){
-    m1.play().catch(()=>{});
+    slideHistoria = 0;
+    slidesHistoria();
+
+    musicaAtual = m1;
+    musicaAtual.play().catch(()=>{});
+    document.querySelector(".controle-musica").innerText = "🔊";
   }
 
+  // Mês atual
   if(id === "mesAtual"){
-    m5.play().catch(()=>{});
+    slideAtual = 0;
+    slidesAtual();
+
+    musicaAtual = m5;
+    musicaAtual.play().catch(()=>{});
+    document.querySelector(".controle-musica").innerText = "🔊";
   }
+
+  atualizarContador();
+}
 
   // 🔥 GARANTE QUE O CONTADOR CONTINUE ATUALIZANDO
   atualizarContador();
