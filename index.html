@@ -38,21 +38,27 @@ body{
 /* BOTÃO VOLTAR */
 .voltar{
   position:fixed;
-  bottom:20px;
-  right:20px;
+  bottom:10px;
+  left:15px;
   z-index:30;
-  background:#ff4d6d;
+  width:38px;
+  height:38px;
+  background:rgba(255,77,109,0.75);
   color:white;
   border:none;
-  border-radius:25px;
-  padding:12px 24px;
+  border-radius:50%;
+  font-size:22px;
   cursor:pointer;
-  font-size:14px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.3);
   display:none;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:0 4px 12px rgba(0,0,0,0.35);
+  opacity:0.75;
 }
 .voltar:hover{
-  transform:scale(1.05);
+  opacity:1;
+  transform:scale(1.08);
 }
 /* CONTADOR */
 #contador{
@@ -591,12 +597,63 @@ body{
 .segredo-caixa h2{
   color:#fbcfe8;
 }
+
+/* CONFETES */
+.confete{
+  position:fixed;
+  top:-20px;
+  font-size:22px;
+  animation:cairConfete 3s linear forwards;
+  z-index:999;
+  pointer-events:none;
+}
+@keyframes cairConfete{
+  0%{
+    transform:translateY(-20px) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* ESTILO POLAROID NAS FOTOS */
+.slide img{
+  background:white;
+  padding:12px 12px 45px;
+  border-radius:8px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);
+  transform:rotate(-1deg);
+  transition:0.3s;
+}
+.slide img:hover{
+  transform:rotate(0deg) scale(1.03);
+}
+
+/* BOTÃO DE MÚSICA */
+.controle-musica{
+  position:fixed;
+  top:15px;
+  right:15px;
+  z-index:30;
+  background:#ffffff;
+  color:#ff4d6d;
+  border:none;
+  border-radius:20px;
+  padding:10px 18px;
+  cursor:pointer;
+  font-size:14px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  display:none;
+}
+    
 </style>
 </head>
 
 <body>
     
-<button class="voltar" onclick="voltarMenu()">⬅ Voltar ao menu</button>
+<button class="voltar" onclick="voltarMenu()">⬅ </button>
 <!-- CARTA INICIAL -->
 <div id="carta">
   <h1 class="coracao-pulsando">❤️</h1>
@@ -1139,7 +1196,8 @@ function abrirPagina(id){
   });
 
   document.getElementById(id).style.display = "block";
-  document.querySelector(".voltar").style.display = "block";
+  document.querySelector(".voltar").style.display = "flex";
+  document.querySelector(".controle-musica").style.display = "block";
 
   // tocar música base (história só toca ao escolher o mês)
   if(id === "croche")   { slideCroche = 0; slidesCroche(); m2.play().catch(()=>{}); }
@@ -1350,6 +1408,7 @@ function revelarTodos(){
 function mostrarMensagem(){
   document.getElementById('mensagem-final').style.display = 'block';
   document.getElementById('btn-revelar').style.display = 'none';
+  soltarConfetes();
 }
     
 function voltarMenu(){
@@ -1379,6 +1438,37 @@ function abrirSegredo(){
     alert("Hmm... essa ainda não é a senha, meu amor 😅");
   }
 }
+function soltarConfetes(){
+  const emojis = ["❤️","💖","✨","🌸","💕","💘"];
+
+  for(let i = 0; i < 50; i++){
+    let confete = document.createElement("div");
+    confete.className = "confete";
+    confete.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    confete.style.left = Math.random() * 100 + "vw";
+    confete.style.animationDuration = (Math.random() * 2 + 2) + "s";
+      
+    document.body.appendChild(confete);
+    setTimeout(() => {
+      confete.remove();
+    }, 4000);
+  }
+}
+function alternarMusica(){
+  let audios = document.querySelectorAll("audio");
+  let tocando = null;
+  audios.forEach(audio => {
+    if(!audio.paused){
+      tocando = audio;
+    }
+  });
+  if(tocando){
+    tocando.pause();
+    document.querySelector(".controle-musica").innerText = "🔇 Música";
+  }else{
+    alert("Escolha uma página novamente para iniciar a música ❤️");
+  }
+}
   window.abrirPagina = abrirPagina;
   window.abrirSite = abrirSite;
   window.abrirMes = abrirMes;
@@ -1386,6 +1476,7 @@ function abrirSegredo(){
   window.revelarTodos = revelarTodos;
   window.voltarMenu = voltarMenu;
   window.abrirSegredo = abrirSegredo;
+  window.alternarMusica = alternarMusica;
 });
 </script>
 
