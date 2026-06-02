@@ -647,6 +647,20 @@ body{
   box-shadow:0 5px 15px rgba(0,0,0,0.3);
   display:none;
 }
+
+/* VÍDEO FIXO DA PÁGINA SECRETA */
+.video-secreto-caixa{
+  margin:25px auto;
+  max-width:600px;
+}
+
+.video-secreto{
+  width:100%;
+  max-width:600px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.45);
+  border:2px solid rgba(255,255,255,0.25);
+} 
     
 </style>
 </head>
@@ -1073,10 +1087,19 @@ Eu te amo, meu cuscuz. ❤️
 
   <p>
     Meu amor, mesmo que o mundo fique pesado, nunca esqueça:
+      
     <span id="parte-mutavel">
       eu vejo sua luz, sua força, seu carinho e sua beleza em detalhes que talvez você nem perceba.
     </span>
   </p>
+  <div class="video-secreto-caixa">
+  <video class="video-secreto" autoplay muted loop playsinline>
+    <source src="video-secreto.mp4" type="video/mp4">
+    Seu navegador não conseguiu carregar este vídeo.
+  </video>
+</div>
+
+<h2>Eu te amo infinitamente ❤️</h2>
   <h2>Eu te amo infinitamente ❤️</h2>
 </div>
 </div>
@@ -1548,7 +1571,7 @@ function mudarFraseSecreta(){
 
   if(!parte) return;
 
-  const frase = partesSecretas[Math.floor(Math.random() * partesSecretas.length)];
+  const frase = frasesSecretas[Math.floor(Math.random() * frasesSecretas.length)];
 
   parte.innerText = frase;
 }
