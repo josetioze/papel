@@ -1086,6 +1086,7 @@ Eu te amo, meu cuscuz. ❤️
 <audio id="musica3" loop><source src="musica3.mp3"></audio>
 <audio id="musica4" loop><source src="musica4.mp3"></audio>
 <audio id="musica5" loop><source src="musica5.mp3"></audio>
+<audio id="musica6" loop><source src="musica6.mp3"></audio>
     
 <div class="email">
   <a href="mailto:tioze.jmps@gmail.com">contato: tioze.jmps@gmail.com</a>
@@ -1191,10 +1192,14 @@ function abrirPagina(id){
   let m3 = document.getElementById("musica3");
   let m4 = document.getElementById("musica4");
   let m5 = document.getElementById("musica5");
+  let m6 = document.getElementById("musica6");
 
-  [m1, m2, m3, m4, m5].forEach(m => {
-    if(m){ m.pause(); m.currentTime = 0; }
-  });
+  [m1, m2, m3, m4, m5, m6].forEach(m => {
+  if(m){ 
+    m.pause(); 
+    m.currentTime = 0; 
+  }
+});
 
   document.getElementById(id).style.display = "block";
   document.querySelector(".voltar").style.display = "flex";
@@ -1217,6 +1222,11 @@ if(id === "sonho"){
 
 if(id === "razoes"){
   musicaAtual = m4;
+  musicaAtual.play().catch(()=>{});
+  document.querySelector(".controle-musica").innerText = "🔊";
+}
+if(id === "segredo"){
+  musicaAtual = m6;
   musicaAtual.play().catch(()=>{});
   document.querySelector(".controle-musica").innerText = "🔊";
 }
